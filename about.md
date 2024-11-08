@@ -13,6 +13,12 @@ Users can interact with the E-Utility APIs via the following options. Click a li
   * [Commmand Line](~eutitlies/access/commandline.md)
   * [Programmatically](~eutitiles/access/programmatically.md)
 
+[test1](https://github.com/jenpetsmit/eutilities/blob/main/access/browser.md) 
+[test2](~/jenpetsmit/eutilities/blob/main/access/browser.md) 
+[test3](~jenpetsmit/eutilities/blob/main/access/browser.md) 
+[test4](~/eutilities/blob/main/access/browser.md) 
+[test5](~/blob/main/access/browser.md) 
+
 ## API Base Path
 The NCBI API base path is 
 https://eutils.ncbi.nlm.nih.gov/entrez/eutils/{   }.fcgi? 
