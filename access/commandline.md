@@ -53,15 +53,28 @@ Please refer to Application 3 in Chapter 3 for an example. Many thousands of IDs
 Search terms are entered as command-line arguments. Individual operations connect with Unix pipes to construct multi-step queries for you. Selected records are retrieved in a variety of formats.
 
  ## ESearch   <-- copied from https://www.ncbi.nlm.nih.gov/books/NBK179288/
- Esearch performs a new search using terms in indexed fields. It requires a ‑db argument for the database name and uses ‑query for the search terms.   ( DO WE NEED TO INCLUDE THIS:  For PubMed, without field qualifiers, the server uses automatic term mapping to compose a search strategy by translating the supplied query?)
- 
+Esearch performs a new search using terms in indexed fields. **SHOULD WE INCLUDE A LIST FIELDS HAVE BEEN INDEXED?** 
+
 To use ESearch, follow the structure of this example:
 
 `esearch -db pubmed -query "selective serotonin reuptake inhibitor"`
 
-Search terms can also be qualified with a bracketed field name to match within the specified index:
+Search terms can also be qualified with a bracketed field name to match within the specified index, for example:
 
-For example:  `esearch -db nuccore -query "insulin [PROT] AND rodents [ORGN]"`
+`esearch -db nuccore -query "insulin [PROT] AND rodents [ORGN]"`
+
+**Table: Required Fields for ESearch**    **<-- REQUIRED FIELDS ARE THE SAME FOR COMMAND LINE AND BROWSER AND PROB API -->**
+
+| common name | argument |  example |
+| --- | ---  | --- |
+| database | -db | -db nucore |
+| search term | -query | -query "insulin [PROT] AND rodents [ORGN]" |
+
+
+
+( **DO WE NEED TO INCLUDE THIS:**  For PubMed, without field qualifiers, the server uses automatic term mapping to compose a search strategy by translating the supplied query?)
+ 
+
 
 ## ELink 
 ELink looks up precomputed neighbors within a database or finds associated records in other databases:
