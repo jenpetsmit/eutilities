@@ -9,7 +9,7 @@ Figure: The Relationship between the User and NCBI Databases with the list of E-
 ![Figure showing the relationship between the User and NCBI databases with the list of E-utilites as the Interface](eutilies/images/about/figure1.png)
 
 Users can interact with the E-Utility APIs via the following options. Click a link to jump to that page.
-  * [Internet Browser](~eutilities/access/browser.md)
+  * [Internet Browser](~eutilities/blob/main/access/browser.md)
   * [Commmand Line](~eutitlies/access/commandline.md)
   * [Programmatically](~eutitiles/access/programmatically.md)
 
