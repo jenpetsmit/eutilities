@@ -41,8 +41,8 @@ When you do not know the UIDs of the records you want, include parameters in you
 
 **Example**
 
-esummary.fcgi?db=<database>&id=<uid_list>
-esummary.fcgi?db=SRA&ui=646232,932456
+base path/esummary.fcgi?db=<database>&id=<uid_list>
+base path/esummary.fcgi?db=SRA&ui=646232,932456
 
 There are several types of parameters.
 
@@ -54,7 +54,7 @@ To briefly explain parameters and show how they work.
 The most common parameter is db, which narrows the search to one database.
 example: db=pubmed
 
-
+See [Database Parameters](eutils/database_parameters.md) for list of databases, descriptions, and other parameters that partner with the database parameter
 
 **Data parameters**
   * **pdat**  | publication data
