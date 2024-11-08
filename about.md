@@ -19,15 +19,15 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/{   }.fcgi?
 
 ### List of E-Utilities
 Replace the brackets with one of the nine E-utilities listed below. For detailed information about each E-utility, click on the name.
-  * [einfo](eutilities/einfo.md)  	Retrieves information and statistics about a single database 
-  * [esearch](eutilites/esearch.md)  	Finds text in a single NCBI database
-  *	[egquery](eutilities/egquery.md)  	Searches a text query in all Entrez databases and returns the number of results [IN THE FORM OF UID PERHAPS?]   in each database 
-  *	[efetch](eutilities/efetch)  	Retrieves full records for each UID   [ DEFINE “FULL RECORD”]
-  *	[esummary](eutilities/esummary.md)  	Retrieves document summaries for each UID (unique identifier)
-  *	[elink](eutilities/elink.md)  	Retrieves UIDs for related or linked records, or LinkOut URLs  [WHAT IS A LINKOUT URL?]
-  *	[espell](eutilities/espell.md)  	Retrieves spelling suggestions for a text query […FOR WHEN YOU DON’T KNOW HOW TO SPELL SOMETHING?]
-  *	[ecitmatch](eutilities/ecitmatch.md)  	Searches PubMed for a series of citation strings   [DEFINE CITATION STRING]
-  *	[epost](eutilities/epost.md)  	Uploads a list of UIDs for later use [ TO USE LATER HOW?]
+  * [einfo](./eutils/einfo.md)  	Retrieves information and statistics about a single database 
+  * [esearch](./eutils/esearch.md)  	Finds text in a single NCBI database
+  *	[egquery](./eutils/egquery.md)  	Searches a text query in all Entrez databases and returns the number of results [IN THE FORM OF UID PERHAPS?]   in each database 
+  *	[efetch](./eutils/efetch)  	Retrieves full records for each UID   [ DEFINE “FULL RECORD”]
+  *	[esummary](./eutils/esummary.md)  	Retrieves document summaries for each UID (unique identifier)
+  *	[elink](./eutils/elink.md)  	Retrieves UIDs for related or linked records, or LinkOut URLs  [WHAT IS A LINKOUT URL?]
+  *	[espell](./eutils/espell.md)  	Retrieves spelling suggestions for a text query […FOR WHEN YOU DON’T KNOW HOW TO SPELL SOMETHING?]
+  *	[ecitmatch](./eutils/ecitmatch.md)  	Searches PubMed for a series of citation strings   [DEFINE CITATION STRING]
+  *	[epost](./eutils/epost.md)  	Uploads a list of UIDs for later use [ TO USE LATER HOW?]
 
 
 
