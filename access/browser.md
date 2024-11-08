@@ -3,13 +3,13 @@
 To use any internet browser as your E-utilities API interface, build a URL comprised of the following;
   * Base path
   * E-utility
-  * Required and optional parameters
+  * [Required](eutilties/parameters.md#required) and [optional](eutilties/parameters.md#optional) parameters
 
-Using the [E-Utilties Base Path](https://github.com/jenpetsmit/eutilities/blob/main/about.md#api-base-path)
+Using the [E-utilties Base Path](https://github.com/jenpetsmit/eutilities/blob/main/about.md#api-base-path):
 
  https://eutils.ncbi.nlm.nih.gov/entrez/eutils/{   }.fcgi? 
 
- 1. Replace the brackets with the name of a E-utitlity 
+ 1. Replace the brackets with the name of an E-utility 
  
 For example: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi? 
 
