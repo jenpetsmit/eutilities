@@ -10,14 +10,8 @@ Figure: The Relationship between the User and NCBI Databases with the list of E-
 
 Users can interact with the E-Utility APIs via the following options. Click a link to jump to that page.
   * [Internet Browser](./access/browser.md)
-  * [Commmand Line](~eutitlies/access/commandline.md)
-  * [Programmatically](~eutitiles/access/programmatically.md)
-
-[test1](https://github.com/jenpetsmit/eutilities/blob/main/access/browser.md) 
-[test2](./eutilities/blob/main/access/browser.md) 
-[test3](./blob/main/access/browser.md) 
-[test4](./main/access/browser.md) 
-[test5](./access/browser.md) 
+  * [Commmand Line](./access/commandline.md)
+  * [Programmatically](./access/programmatically.md)
 
 ## API Base Path
 The NCBI API base path is 
