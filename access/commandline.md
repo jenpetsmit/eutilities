@@ -33,7 +33,7 @@ Please refer to Application 3 in Chapter 3 for an example. Many thousands of IDs
 
 
 
-## How EDirect Works
+# Using EDirect
 Search terms are entered as command-line arguments. Individual operations connect with Unix pipes to construct multi-step queries for you. Selected records are retrieved in a variety of formats.
 
  ## ESearch   <-- copied from https://www.ncbi.nlm.nih.gov/books/NBK179288/
