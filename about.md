@@ -9,15 +9,15 @@ Figure: The Relationship between the User and NCBI Databases with the list of E-
 ![Figure showing the relationship between the User and NCBI databases with the list of E-utilites as the Interface](eutilies/images/about/figure1.png)
 
 Users can interact with the E-Utility APIs via the following options. Click a link to jump to that page.
-  * [Internet Browser](~eutilities/blob/main/access/browser.md)
+  * [Internet Browser](./access/browser.md)
   * [Commmand Line](~eutitlies/access/commandline.md)
   * [Programmatically](~eutitiles/access/programmatically.md)
 
 [test1](https://github.com/jenpetsmit/eutilities/blob/main/access/browser.md) 
-[test2](~/jenpetsmit/eutilities/blob/main/access/browser.md) 
-[test3](~jenpetsmit/eutilities/blob/main/access/browser.md) 
-[test4](~/eutilities/blob/main/access/browser.md) 
-[test5](~/blob/main/access/browser.md) 
+[test2](./eutilities/blob/main/access/browser.md) 
+[test3](./blob/main/access/browser.md) 
+[test4](./main/access/browser.md) 
+[test5](./access/browser.md) 
 
 ## API Base Path
 The NCBI API base path is 
