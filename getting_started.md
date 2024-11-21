@@ -4,9 +4,9 @@ Entrez Utilities (E-Utilities) is an Application Program Interface (API) that he
 
 Figure: The Relationship between the User and NCBI Databases with the list of E-utilites as the Interface
 
-![Figure showing the relationship between the User and NCBI databases with the list of E-utilites as the Interface](eutilies/images/figure1.png)
+![Figure showing the relationship between the User and NCBI databases with the list of E-utilites as the Interface](./eutilies/images/figure1.png)
 
-Users can interact with the E-Utility APIs via the following options. Click a link to jump to that page. **MOVE THIS**
+Users can interact with the E-Utility APIs via the following options. Click a link to jump to that page. **MOVE THIS**  
   * [Internet Browser](./access/browser.md)
   * [Commmand Line](./access/commandline.md)
   * [Programmatically](./access/programmatically.md)
