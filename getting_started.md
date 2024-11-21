@@ -78,32 +78,27 @@ See Table 2 for a list of the most often used parameters.   For a full list, see
 | Retrieval Type     | ecitmatch<br> efetch<br> einfo<br> elink<br> esummary<br> esearch    | rettype     |   EXAMPLE   | Return types vary by E-Utility     |
 
 
-#### Common Parameters
+## API Key
 
-**UID**
-The UID is a unique identifier (UID) used to identify a record in an NCBI database. The combination of the database alias and UID DOES SOMETHING?
-E-utility alias -id
+Since December 1, 2018, NCBI has provided API keys that offer enhanced levels of supported access to the E-Utilities. Without an API key, any site (IP address) posting more than 3 requests per second to the E-Utilities will receive an error message. By including an API key, a site can post up to 10 requests per second by default. Higher rates are available by request (email at email). 
 
-**database parameter**
-The most common parameter is db, which narrows the search to one database.
-example: db=pubmed
-E-utility alias - db
+How to get your own API key to use with NCBI E-Utilities.
+To get your API key, follow these steps:
+ 1. While signed in to your My NCBI account, go to your NCBI Account Settings. If you don’t have a My NCBI account, you’ll need to create one.
+ 2. Scroll to the bottom of the page to find the “API Key Management” section.
+ 3. Click the “Create API Key” button. A unique sequence of characters will be generated and displayed in the “API Key Management” box. This is your API key.
 
-See [Database Parameters](eutils/database_parameters.md) for list of databases, descriptions, and other parameters that partner with the database parameter
+**Use Your API Key with NCBI E-Utilities**   [COPIED FROM DATASETS - CHECK THIS IS TRUE FOR E-UTILITIES]
+You can use your API key with the E-Utilites command-line tools and API. To use your API key with the E-Utilties command-line tool EDriect, you have two options:
+  * Add your API key as a parameter in each command
+
+To use your API key as a parameter in a command, use the --api-key flag:
+
+```esummary.fcgi?db=pubmed&id=123456&api_key=<PUT_YOUR_API_KEY_HERE>```
+  * Alternatively, you can set the NCBI_API_KEY environment variable, and the command-line tool will use the API key automatically. Use export to set the environment variable as follows:
+
+```export NCBI_API_KEY=<PUT_YOUR_API_KEY_HERE>```
+
+### Usage Guidelines
 
 
-
-**Response Parameters**
-  * **rettype** | The type of information to return
-  * **retmode** | The format of the response. XML (default) and JSON are the two options
-  * **remax** | The maximum number of records returned. The default number is 20. The maximum number is 10,000
-  * **retstart** | when a query returns a response and each response is assigned to an index,  use retstart to indicate the index number of the first record   [NOT SURE THIS IS RIGHT]
-
-
-
-
-**Data parameters**
-  * **pdat**  | publication data
-  * **reldate**  | days to be search relative to the current date.  reldate =1 is for the most recent date
-  * **mindate** and **maxdate** are used togeteher to provide a date range. mindate=YYY/MM/DD or YYYY/MM&maxdate=YYYY/MM/DD or YYYY/MM
-  * **cmd** | may  not belong in this list. relevant to elink and used to inidcate whether or not to return IDs of simliar artcles or URSL to full text [IS THIS STILL TRUE?]
