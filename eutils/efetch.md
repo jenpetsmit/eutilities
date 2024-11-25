@@ -182,7 +182,7 @@ Data content to return. Many sequence records are part of a larger data structur
 #### PubMed
 Fetch PMIDs 17284678 and 9997 as text abstracts:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=17284678,9997&retmode=text&rettype=abstract ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=17284678,9997&retmode=text&rettype=abstract](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=17284678,9997&retmode=text&rettype=abstract)
 
 Fetch PMIDs in XML:
 
@@ -254,6 +254,6 @@ Fetch FASTA for a transcript and its protein product (GIs 312836839 and 34577063
 #### Gene
 Fetch full XML record for Gene ID 2:
 
-```[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gene&id=2&retmode=xml](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gene&id=2&retmode=xml) ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gene&id=2&retmode=xml](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gene&id=2&retmode=xml)
 
 
