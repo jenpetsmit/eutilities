@@ -18,15 +18,15 @@ Use the ```&rettype = fasta & retmode = text```    to indicate in which format y
 
 For example:
 
-```FASTA: 	&rettype = fasta & retmode = text```  
+**FASTA:** 	```&rettype = fasta & retmode = text```  
 
-PubMed abstract: 	```&db=pubmed&rettype=abstract&retmode=text```
+**PubMed abstract:** 	```&db=pubmed&rettype=abstract&retmode=text```    <- WHICH IS BETTER? NO SPACE OR WITH SPACE LIKE THE ABOVE EXAMPLE?
 
  ## Required Parameters
 
  id  
  
-** UID list.** Either a single UID or a comma-delimited list of UIDs may be provided. All of the UIDs must be specified by db. There is no set maximum for the number of UIDs that can be passed to EFetch, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.  **[add link here]**
+**UID list.** Either a single UID or a comma-delimited list of UIDs may be provided. All of the UIDs must be specified by db. There is no set maximum for the number of UIDs that can be passed to EFetch, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.  **[add link here]**
 
 For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiers.
 
