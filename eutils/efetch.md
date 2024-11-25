@@ -24,9 +24,11 @@ For example:
 
  ## Required Parameters
 
- id  
+**Table 1. EFetch Required Parameters**
+ |  Required Parameters | Common Name | Description |
+ | --- | --- | --- |
+ | id  | UID list |  Either a single UID or a comma-delimited list of UIDs may be provided. All of the UIDs must be specified by db. There is no set maximum for the number of UIDs that can be passed to EFetch, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.  **[add link here]** |
  
-**UID list.** Either a single UID or a comma-delimited list of UIDs may be provided. All of the UIDs must be specified by db. There is no set maximum for the number of UIDs that can be passed to EFetch, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.  **[add link here]**
 
 For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiers.
 
@@ -39,36 +41,31 @@ For sequence databases (nuccore, popset, protein), the UID list may be a mixed l
 NCBI is no longer assigning GI numbers to a growing number of new sequence records. As such, these records are not indexed in Entrez, and so cannot be retrieved using ESearch or ESummary, and have no Entrez links accessible by ELink. EFetch can retrieve these records by including their accession.version identifier in the id parameter.
 
  
-## Required Parameters – Used only when input is from the **Entrez History server**
+## Optional Parameters 
 
-**query_key**
+Use Query Key and Web Environment parameters when including input from the **Entrez History server**
 
-Query key. This integer specifies which of the UID lists attached to the given Web Environment will be used as input to EFetch. Query keys are obtained from the output of previous ESearch, EPost or ELInk calls. The query_key parameter must be used in conjunction with WebEnv.
+**Table 2. EFetch Optional Parameters to Use with Entrez History Server Parameter**
+ |  Optional Parameter | Common Name | Description |
+ | --- | --- | --- |
+ | **query_key**  |Query Key |  This integer specifies which of the UID lists attached to the given Web Environment will be used as input to EFetch. Query keys are obtained from the output of previous ESearch, EPost or ELInk calls. The query_key parameter must be used in conjunction with WebEnv. |
+  | **WebEnv** | Web Environment | This parameter specifies the Web Environment that contains the UID list to be provided as input to EFetch. Usually this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key. |
 
-**WebEnv**
-
-Web Environment. This parameter specifies the Web Environment that contains the UID list to be provided as input to EFetch. Usually this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key.
-efetch.fcgi?db=protein&query_key={key}&WebEnv={webenv string}
+ 
+```efetch.fcgi?db=protein&query_key={key}&WebEnv={webenv string}```
 
 ##  Optional Parameters – Retrieval
+**Table 3. EFetch Optional Retrieval Parameters**
+| Optional Parameter | Common Name | Description |
+ | --- | --- | --- |
+  | **rettype** | Retrieval Rype | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database. |
+   | **retstart** | Retrival Start | Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set. |
+    | **retmax** | Retrieval Max | Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax. |
+     | **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. See Table 4 for a full list of allowed values for each database. |
 
-**rettype**
 
-Retrieval type. This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database.
-
-**retstart**
-
-Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set.
-
-**retmax**
-
-Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax.
-
-**retmode**
-
-Retrieval mode. This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. See Table 1 for a full list of allowed values for each database.
  
-**Table 1: EFetch: Valid values of “&retmode” and “&rettype” (null = empty string)**
+**Table 4: EFetch: Valid values of “&retmode” and “&rettype” (null = empty string)**
 | Record Type                                    | &rettype              | &retmode               |
 |------------------------------------------------|-----------------------|------------------------|
 | **All Databases**                              |                       |                        |
@@ -150,21 +147,16 @@ Retrieval mode. This parameter specifies the data format of the records returned
 | &nbsp;&nbsp;&nbsp;&nbsp;GTR Test Report                                | gtracc                | xml (default)          |
 
 ## Optional Parameters for Sequence Databases
-**strand**
+**Table 5. EFetch Optional Sequence Paramaters**
 
-Strand of DNA to retrieve. Available values are "1" for the plus strand and "2" for the minus strand.
+| Optional Parameter | Common Name | Description |
+ | --- | --- | --- |
+ | **strand** | Strand of DNA to retrieve | Available values are "1" for the plus strand and "2" for the minus strand.
+ | **seq_start** | First sequence base to retrieve | The value should be the integer coordinate of the first desired base, with "1" representing the first base of the sequence. |
+  | **seq_stop** | Last sequence base to retrieve | The value should be the integer coordinate of the last desired base, with "1" representing the first base of the sequence. |
+   | **complexity** | Data content to return | Many sequence records are part of a larger data structure or "blob", and the complexity parameter determines how much of that blob to return. For example, an mRNA may be stored together with its protein product. The available values are in Table 6. |
 
-**seq_start**
-
-First sequence base to retrieve. The value should be the integer coordinate of the first desired base, with "1" representing the first base of the sequence.
-
-**seq_stop**
-
-Last sequence base to retrieve. The value should be the integer coordinate of the last desired base, with "1" representing the first base of the sequence.
-
-**complexity**
-
-Data content to return. Many sequence records are part of a larger data structure or "blob", and the complexity parameter determines how much of that blob to return. For example, an mRNA may be stored together with its protein product. The available values are as follows:
+**Table 6. EFetch Sequence Complexity Parameters**
 
 | Value of complexity | Data returned for each requested GI  |
 | --- | --- |
