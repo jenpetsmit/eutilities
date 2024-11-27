@@ -1,12 +1,12 @@
 # ELink
 
-As UIDs can exist
+Records in one database are often linked to records in a different database showing the two sets of records are related. For example a record in the SRA database is linked to a record in the BioProject database. If you have data from one database (use the dbfrom parameter), you can see what records in a second database (use the db parameter) may be linked.
+
+ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrieves LinkOut URLs, which are links to journals in PubMed database.
 
 **Base URL**
 
 ```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi```
-
- Retrieves UIDs for related or linked records, or LinkOut URLs.
 
 **Functions**
 
@@ -20,21 +20,27 @@ As UIDs can exist
 
 ## Required Parameters
 
-
-
 **Table 1. ELink Required Parameters**
- |  Required Parameters | Common Name | Description |
+ |  Required Parameters | Common Name | Brief Description |
  | --- | --- | --- |
  | db  | Target database  |  Database from which to retrieve UIDs |
  | dbfrom  | Source database  | Database containing the input UIDs |
+ | cmd | Command option | Command parameter which enables additional filtering |
+ |  cmd=neighbor_score |    Neighbor score       |   Retrieves  a set of UIDs within the same database as the input UIDs along with computed similarity scores     | 
+  |  cmd=neighbor_history  | Neighbor history   |     Output UIDs are saved (posted) to the Entrez History server for use in subsequent call   | 
+   |  cmd=acheck |   Checks for available links         |    Retrieves links available for a set of UIDs   | 
+    |  cmd=ncheck |   Checks for links in same database         |      Retrieves links in same database   | 
+     |  cmd=lcheck|   External links (LinkOuts)         | Retreives external links (PubMed)       | 
+      |  cmd=llinks |    External links that are not libraries        |    For each input UID, ELink lists the URLs and attributes for the LinkOut providers that are not libraries .   | 
+       |  cmd=llinkslib | External links that include libraries    |   For each input UID, ELink lists the URLs and attributes for all LinkOut providers including libraries    | 
+        |  cmd=prlinks |      Primary LinkOut provider      | For each input UID retrieves the primary LinkOut provider, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.      | 
  
-If db and dbfrom are set to the same database value, then ELink will return computational neighbors within that database. Please see the full list of Entrez links for available computational neighbors. Computational neighbors have linknames that begin with dbname_dbname (examples: protein_protein, pcassay_pcassay_activityneighbor).
-
 
  
 
-###	 Batch mode – finds only one set of linked UIDs
-elink.fcgi?dbfrom={source_db}&db={destination_db}&id={uid_list}
+###	 Batch Mode – Finds Only One Set of Linked UIDs
+
+```elink.fcgi?dbfrom={source_db}&db={destination_db}&id={uid_list}```
 
 **Input**: List of UIDs (&id); Source Entrez database (&dbfrom); Destination Entrez database (&db) 
 
@@ -44,6 +50,7 @@ elink.fcgi?dbfrom={source_db}&db={destination_db}&id={uid_list}
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=34577062,24475906](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=34577062,24475906)
  
+
 ###	‘By Id’ mode – finds one set of linked UIDs for each input UID
 
 ```elink.fcgi?dbfrom={source_db}&db={destination_db}&id={uid1}&id={uid2}&id={uid3}...```
@@ -51,38 +58,40 @@ elink.fcgi?dbfrom={source_db}&db={destination_db}&id={uid_list}
 **Example**: Find separate sets of Gene IDs linked to nuccore GIs 34577062 and 24475906
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=34577062&id=24475906](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=34577062&id=24475906)
-Note: &db may be a comma-delimited list of databases, so that elink returns multiple sets of linked UIDs in a single call
+
+**Note**: The parameter, &db, may be a comma-delimited list of databases, so that elink returns multiple sets of linked UIDs in a single call.
 _____________________________________________________
  
 
 ### Finding Links to Data from a Previous Search
-esearch.fcgi?db={source_db}&term={query}&usehistory=y
 
-# esearch produces WebEnv value ($web1) and QueryKey value ($key1)
+1. First search using the esearch E-Utility, which create Web Environment value ($web1) and Query Key ($key1) value.  
+```esearch.fcgi?db={source_db}&term={query}&usehistory=y```
+
+2. Next use the WebEnv and query_key values in a subsequent elink call. 
 
 ```elink.fcgi?dbfrom={source_db}&db={destination_db}&query_key=$key1&WebEnv=$web1&cmd=neighbor_history```
 
-**Input**: Source Entrez database (&dbfrom); Destination Entrez database (&db); Web environment (&WebEnv) and query key (&query_key) representing the set of source UIDs on the Entrez history server; Command mode (&cmd)
+**Input**: 
+  * Source Entrez database (&dbfrom)
+  * Destination Entrez database (&db)
+  * Web environment (&WebEnv)
+  * query key (&query_key) representing the set of source UIDs on the Entrez history server
+  * Command mode (&cmd)
 
 **Output**: XML containing Web environments and query keys for each set of linked UIDs
 
-**Note**: To achieve ‘By Id’ mode, one must send each input UID as a separate &id parameter in the URL. Sending a WebEnv/query_key set always produces Batch mode behavior (one set of linked UIDs).
+**Note**: To achieve ‘By Id’ mode, you must enter each input UID as a separate &id parameter in the URL. If not, sending a WebEnv/query_key set produces Batch mode behavior retrieving one set of linked UIDs.
 
-### 	Finding Computational Neighbors Limited by an Entrez Search
 
-```elink.fcgi?dbfrom={source_db}&db={source_db}&id={uid_list}&term={query}&cmd=neighbor_history```
 
-**Input**: Source Entrez database (&dbfrom); Destination Entrez database (&db); List of UIDs (&id); Entrez query (&term); Command mode (&cmd)
-
-**Output**: XML containing Web environments and query keys for each set of linked UIDs
-
-**Example**: Find protein UIDs that are rat Reference Sequences and that are sequence similar to GI 15718680
-
-[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=protein&id=15718680&term=rat[orgn]+AND+srcdb+refseq[prop]&cmd=neighbor_history](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=protein&id=15718680&term=rat[orgn]+AND+srcdb+refseq[prop]&cmd=neighbor_history)
-
-## Computational Neighbors
+## ELink Command Options
 
 ELink offers the option to write commands in the API elink query.
+
+**Computational Neighbors**
+
+If db and dbfrom are set to the same database value, then ELink will return computational neighbors within that database. Please see the full list of Entrez links for available computational neighbors. Computational neighbors have linknames that begin with dbname_dbname (examples: protein_protein, pcassay_pcassay_activityneighbor).
 
 ### cmd=neighbor (default)
 
@@ -92,9 +101,10 @@ ELink returns a set of UIDs in db linked to the input UIDs in dbfrom.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902)
 
-### cmd=neighbor_score
+## Computational Neighbors
+ELink can return a set of UIDs within the same database as the input UIDs along with computed similarity scores called _Computational Neighbors_.
 
-ELink returns a set of UIDs within the same database as the input UIDs along with computed similarity scores.
+### cmd=neighbor_score
 
 **Example**: Find related articles to PMID 20210808
 
@@ -102,11 +112,27 @@ ELink returns a set of UIDs within the same database as the input UIDs along wit
 
 ### cmd=neighbor_history
 
+```elink.fcgi?dbfrom={source_db}&db={source_db}&id={uid_list}&term={query}&cmd=neighbor_history```
+
 ELink posts the output UIDs to the Entrez History server and returns a query_key and WebEnv corresponding to the location of the output set.
 
 **Example**: Link from protein to gene and post the results on the Entrez History
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902&cmd=neighbor_history](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902&cmd=neighbor_history)
+
+### 	Finding Computational Neighbors Limited by an Entrez Search
+
+**Input**: Source Entrez database (&dbfrom); Destination Entrez database (&db); List of UIDs (&id); Entrez query (&term); Command mode (&cmd)
+
+**Output**: XML containing Web environments and query keys for each set of linked UIDs
+
+**Example**: Find protein UIDs that are rat Reference Sequences and that are sequence similar to GI 15718680
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=protein&id=15718680&term=rat[orgn]+AND+srcdb+refseq[prop]&cmd=neighbor_history](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=protein&id=15718680&term=rat[orgn]+AND+srcdb+refseq[prop]&cmd=neighbor_history)
+
+
+
+
 
 ### cmd=acheck
 ELink lists all links available for a set of UIDs.
