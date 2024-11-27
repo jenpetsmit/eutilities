@@ -80,3 +80,84 @@ esearch.fcgi?db={source_db}&term={query}&usehistory=y
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=protein&id=15718680&term=rat[orgn]+AND+srcdb+refseq[prop]&cmd=neighbor_history](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=protein&id=15718680&term=rat[orgn]+AND+srcdb+refseq[prop]&cmd=neighbor_history)
 
+## Computational Neighbors
+
+ELink offers the option to write commands in the API elink query.
+
+### cmd=neighbor (default)
+
+ELink returns a set of UIDs in db linked to the input UIDs in dbfrom.
+
+**Example**: Link from protein to gene
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902)
+
+### cmd=neighbor_score
+
+ELink returns a set of UIDs within the same database as the input UIDs along with computed similarity scores.
+
+**Example**: Find related articles to PMID 20210808
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=20210808&cmd=neighbor_score](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=20210808&cmd=neighbor_score)
+
+### cmd=neighbor_history
+
+ELink posts the output UIDs to the Entrez History server and returns a query_key and WebEnv corresponding to the location of the output set.
+
+**Example**: Link from protein to gene and post the results on the Entrez History
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902&cmd=neighbor_history](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902&cmd=neighbor_history)
+
+### cmd=acheck
+ELink lists all links available for a set of UIDs.
+
+**Example**: List all possible links from two protein GIs
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=acheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=acheck)
+
+**Example**: List all possible links from two protein GIs to PubMed
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=pubmed&id=15718680,157427902&cmd=acheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=pubmed&id=15718680,157427902&cmd=acheck)
+
+### cmd=ncheck
+ELink checks for the existence of links within the same database for a set of UIDs. These links are equivalent to setting db and dbfrom to the same value.
+
+**Example**: Check whether two nuccore sequences have "related sequences" links.
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&id=21614549,219152114&cmd=ncheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&id=21614549,219152114&cmd=ncheck)
+
+### cmd=lcheck
+Elink checks for the existence of external links (LinkOuts) for a set of UIDs.
+
+**Example**: Check whether two protein sequences have any LinkOut providers.
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=lcheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=lcheck)
+
+### cmd=llinks
+For each input UID, ELink lists the URLs and attributes for the LinkOut providers that are not libraries.
+
+**Example**: List the LinkOut URLs for non-library providers for two pubmed abstracts.
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinks](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinks)
+### cmd=llinkslib
+For each input UID, ELink lists the URLs and attributes for all LinkOut providers including libraries.
+
+**Example**: List all LinkOut URLs for two PubMed abstracts.
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinkslib](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinkslib)
+
+### cmd=prlinks
+ELink lists the primary LinkOut provider for each input UID, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.
+
+**Example**: Find links to full text providers for two PubMed abstracts.
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=prlinks](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=prlinks)
+
+**Example**: Link directly to the full text for a PubMed abstract at the provider's web site.
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref)
+
+
+
+
+
