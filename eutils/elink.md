@@ -1,24 +1,37 @@
 # ELink
 
+As UIDs can exist
+
 **Base URL**
 
 ```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi```
 
  Retrieves UIDs for related or linked records, or LinkOut URLs.
 
-Functions
- •	Returns UIDs linked to an input set of UIDs in either the same or a different Entrez database
- •	Returns UIDs linked to other UIDs in the same Entrez database that match an Entrez query
- •	Checks for the existence of Entrez links for a set of UIDs within the same database
- •	Lists the available links for a UID
- •	Lists LinkOut URLs and attributes for a set of UIDs
- •	Lists hyperlinks to primary LinkOut providers for a set of UIDs
- •	Creates hyperlinks to the primary LinkOut provider for a single UID
-K-1	Required Parameters
-db
-Database from which to retrieve UIDs. The value must be a valid Entrez database name (default = pubmed). This is the destination database for the link operation.
-dbfrom
-Database containing the input UIDs. The value must be a valid Entrez database name (default = pubmed). This is the origin database of the link operation. If db and dbfrom are set to the same database value, then ELink will return computational neighbors within that database. Please see the full list of Entrez links for available computational neighbors. Computational neighbors have linknames that begin with dbname_dbname (examples: protein_protein, pcassay_pcassay_activityneighbor).
+**Functions**
+
+  * Retrieve UIDs linked to an input set of UIDs in either the same or a different Entrez database
+  * Retrieve UIDs linked to other UIDs in the same Entrez database that match an Entrez query
+  * Checks for the existence of Entrez links for a set of UIDs within the same database
+  * Lists the available links for a UID
+  * Lists LinkOut URLs and attributes for a set of UIDs
+  * Lists hyperlinks to primary LinkOut providers for a set of UIDs
+  * Creates hyperlinks to the primary LinkOut provider for a single UID
+
+## Required Parameters
+
+
+
+**Table 1. ELink Required Parameters**
+ |  Required Parameters | Common Name | Description |
+ | --- | --- | --- |
+ | db  | Target database  |  Database from which to retrieve UIDs |
+ | dbfrom  | Source database  | Database containing the input UIDs |
+ 
+If db and dbfrom are set to the same database value, then ELink will return computational neighbors within that database. Please see the full list of Entrez links for available computational neighbors. Computational neighbors have linknames that begin with dbname_dbname (examples: protein_protein, pcassay_pcassay_activityneighbor).
+
+
+ 
 
 K-2	 Batch mode – finds only one set of linked UIDs
 elink.fcgi?dbfrom={source_db}&db={destination_db}&id={uid_list}
