@@ -23,7 +23,7 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
 **Table 1. ELink Required Parameters**
  |  Required Parameters | Common Name | Brief Description |
  | --- | --- | --- |
- | db= <database>  | Target database  |  Database from which to retrieve UIDs |
+ | db=<database>  | Target database  |  Database from which to retrieve UIDs |
  | dbfrom=<source database>  | Source database  | Database containing the input UIDs |
  |  cmd=neighbor_score |    Neighbor score       |   Retrieves  a set of UIDs within the same database as the input UIDs along with computed similarity scores     | 
  |  cmd=neighbor_history  | Neighbor history   |     Output UIDs are saved (posted) to the Entrez History server for use in subsequent call   | 
