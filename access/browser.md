@@ -59,16 +59,16 @@ See Table 2 for a list of the most often used parameters.   For a full list, see
 
 | Common name      | Works&nbsp;with          | What does it do?         | Entrez API abbriviation  **what to call this?**             | Example     |
 | --- | ---  | ---  | ---  | ---  |
-| Database | einfo<br> esearch<br> esummary<br> epost<br> elink<br> espell<br> ecitmatch<br>efetch  | Limits results to the provided database | db=\<entrez database query name>   | db=gap  |  
-| Term    | egquery<br> esearch<br> elink<br> espell        | Includes the term you provide in the query     | term=\<text>     | term=asthma     |
-| UID list      | esummary<br>epost<br> elink<br> efetch       | Limits results to the provided UIDs    | id=\<UID>     | id=19393038,30242208,29453458      |
-| Use History      | esearch      | Use history flag            | usehistory         |    usehistory=y                   |
-| Return max      | esearch<br>esummary         | Total number of DocSums from the input set to be retrieved, up to a maximum of 10,000 | retmax=\<maximum number of results you want>      | retmax=10       |
-| Retrieval mode   | esummary<br> einfo<br> esearch<br> efetch<br> elink     | Formats of the output       | retmode=\<format>      | retmode=json<br> retmode=xml<br> XML is the default<BR> all E-Utilities support JSON except efetch  |
-| Relative Date       | esearch       | Sets the days to be searched relative to the current date   | reldate=        | reldate=5 IS THIS EXAMPLE RIGHT?      |
-| Minimum Date   | esearch<br> elink       | Specifies the start date according to the format YYYY/MM/DD<br> YYYY<br> or YYYY/MM | mindate=/YYYY/DD     | mindate=2022/12 <br>A query must contain both mindate and maxdate parameters    |
-| Maximum Date | esearch<br> elink       | Specifies the end date according to the format YYYY/MM/DD<br> YYYY<br> or YYYY/MM |  maxdate=/YYYY    | maxdate=2024/12 <br> A query must contain both mindate and maxdate parameters    |
-| Retrieval Type     | ecitmatch<br> efetch<br> einfo<br> elink<br> esummary<br> esearch  
+| Database | einfo<br> esearch<br> esummary<br> epost<br> elink<br> espell<br> ecitmatch<br>efetch  | Limits results to the provided database | db={entrez database query name}   | db=gap  |  
+| Term    | egquery<br> esearch<br> elink<br> espell        | Includes the term you provide in the query     | term={text}     | term=asthma     |
+| UID list      | esummary<br>epost<br> elink<br> efetch       | Limits results to the provided UIDs    | id={UID}     | id=19393038,30242208,29453458      |
+| Use History      | esearch      | Use history flag            | usehistory=y       |    usehistory=y                   |
+| Return max      | esearch<br>esummary         | Total number of DocSums from the input set to be retrieved, up to a maximum of 10,000 | retmax={maximum number of results you want}      | retmax=10       |
+| Retrieval mode   | esummary<br> einfo<br> esearch<br> efetch<br> elink     | Formats of the output       | retmode={format}      | retmode=json<br> retmode=xml<br> XML is the default<BR> All E-Utilities support JSON except efetch  |
+| Relative Date       | esearch       | Sets the days to be searched relative to the current date   | reldate=        | reldate=5 IS THIS EXAMPLE RIGHT? IS this plus or minus today's date?     |
+| Minimum Date   | esearch<br> elink       | Specifies the start date according to the format YYYY/MM/DD<br> YYYY<br> or YYYY/MM | mindate={YYYY/MM/DD} <br> mindate={YYYY/MM} <br> mindate={YYYY}    | mindate=2022/12 <br>A query must contain both mindate and maxdate parameters    |
+| Maximum Date | esearch<br> elink       | Specifies the end date according to the format YYYY/MM/DD<br> YYYY<br> or YYYY/MM |  maxdate={YYYY/MM/DD} <br> maxdate={YYYY/MM} <br> maxdate={YYYY}     | maxdate=2024/12 <br> A query must contain both mindate and maxdate parameters    |
+| Retrieval Type     | ecitmatch<br> efetch<br> einfo<br> elink<br> esummary<br> esearch  | retype={ WHAT GOES HERE?}  | retype= EXAMPLE <br> Return types vary by E=Utility  |
 
 
  
