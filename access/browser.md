@@ -1,4 +1,4 @@
-# Access E-utilities via Internet Browser
+# Access E-Utilities via Internet Browser
 
 
 ## API Query URL
@@ -7,6 +7,8 @@ Entrez API queries URL have three parts:
  * Base URL
  * E-Utility
  * Parameters
+
+
 
 Figure 1. Parts of the Entrez API Query
 
