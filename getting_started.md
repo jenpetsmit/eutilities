@@ -2,12 +2,9 @@
 
 Entrez Utilities (E-Utilities) is an Application Program Interface (API) that helps you gather data from most of the 40 NCBI Entrez database residing at the NCBI using queries. The databases include a variety of biomedical data, including nucleotide and protein sequences, gene records, three-dimensional molecular structures, and the biomedical literature.  The E-Utilities give you control over what fields to search, the data to retrieve, the data format, and how to share results. 
 
-[![E-Utilities Quick Start](access/images/quickstart.png)](./access/quickstart.md) &nbsp;    [![Browser-based Entrez API Queries](access/images/browser-based-queries.png)](./access/browser.md) &nbsp;[![Unix Command Line](access/images/unix-command-line.png)](./access/commandline.md)
+Users can interact with the E-Utility APIs via the following options:
 
- 
-Users can interact with the E-Utility APIs via the following options. 
-  * [Entrez API Browser-based Queries](./access/browser.md)
-  * [Unix Commmand Line](./access/commandline.md)
+[![E-Utilities Quick Start](access/images/quickstart.png)](./access/quickstart.md) &nbsp;    [![Browser-based Entrez API Queries](access/images/browser-based-queries.png)](./access/browser.md) &nbsp;[![Unix Command Line](access/images/unix-command-line.png)](./access/commandline.md)
 
 
 
