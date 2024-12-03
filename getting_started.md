@@ -7,8 +7,8 @@ Entrez Utilities (E-Utilities) is an Application Program Interface (API) that he
 
 Users can interact with the E-Utility APIs via the following options. Click a link to jump to that page. 
   * [Internet Browser](./access/browser.md)
-  * [Commmand Line](./access/commandline.md)
-  * [Programmatically](./access/programmatically.md)
+  * [Unix Commmand Line](./access/commandline.md)
+
 
 ## API URL
 
