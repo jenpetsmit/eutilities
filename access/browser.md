@@ -103,7 +103,8 @@ Incorrect:  &term=#2+AND+"gene in genomic"[properties]               <-- THE BRA
 
 Correct:   &term=%232+AND+%22gene+in+genomic%22[properties]
 
-**Use of Spaces**
+### Use of Spaces
+
 Do not include spaces in the URLs, particularly in queries. If a space is required, use a plus sign (+) instead of a space:
 
 Incorrect:  &id=352, 25125, 234
@@ -114,7 +115,7 @@ Incorrect:  &term=biomol mrna[properties] AND mouse[organism]
 
 Correct:   &term=biomol+mrna[properties]+AND+mouse[organism]
 
-**Use of Lower- and Upper-Case**
+### Use of Lower- and Upper-Case
 
 When constructing URLs for the E-utilities, use lowercase characters for all parameters except for the **WebEnv** parameter. 
 
