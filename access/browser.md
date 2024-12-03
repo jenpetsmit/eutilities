@@ -8,6 +8,9 @@ Entrez API queries URL have three parts:
  * E-Utility
  * Parameters
 
+Figure 1. Parts of the Entrez API Query
+
+ ![Parts of the Entrez API Query](./images/apiurlparts.png)
 ## Building a Simple Entrez Query URL
 You can build a simple API query URL in your internet browser: 
 
