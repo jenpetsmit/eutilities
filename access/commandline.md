@@ -1,7 +1,13 @@
 # Access E-utility APIs Using Command Line
 
-To access E-utility APIs using the command line use Entrez Direct (EDirect), the E-utilities command-line tool.
+Use Entrez Direct programs to work on large sets of data. They manage many technical details behind the scenes (avoiding the learning curve normally required for E-Utilities programming). Intermediate results are either saved on the Entrez history server or instantiated in a hidden message. 
 
+## API Key
+ Although not required, for best performance, [obtain an API Key from NCBI](./access/api_key.md), and place the following line in your .bash_profile and .zshrc configuration files:
+
+  ```export NCBI_API_KEY=unique_api_key```
+
+## Installation
 EDirect runs on Unix, Linux, and Macintosh computers, and under the Cygwin Unix-emulation environment on Windows PCs.
 
 To install the EDirect software: 
@@ -22,15 +28,11 @@ If you want to automatically update the export PATH:
 2.	Answer **y** and press the **Return** key
 3.	If the PATH is already set correctly, or if you prefer to make any editing changes manually, just press **Return**.
 
-### API Key   
-
-EDirect programs are designed to work on large sets of data. Although not required, for best performance, include an [NCBI API Key](./api_key.md). 
-
+ 
  
 #### Minimizing the Number of Requests   **FIX OR MOVE THIS LATER**
-If a task requires searching for and/or downloading a large number of records,  use the Entrez History to upload and retrieve these records in batches rather than using separate requests for each record. 
+If a task requires searching for and/or downloading a large number of records,  use the Entrez History (server? does this go here?) to upload and retrieve these records in batches rather than using separate requests for each record. 
 Please refer to Application 3 in Chapter 3 for an example. Many thousands of IDs can be uploaded using a single EPost request, and several hundred records can be downloaded using one EFetch request.
-
 
 
 # Using EDirect
@@ -102,6 +104,31 @@ Continuing the query looks up precomputed neighbors of the original papers, next
 ```
 
 In most modern versions of Unix, the vertical bar pipe symbol also allows the query to continue on the next line, without the need for an additional backslash.
+
+## Construct Multi-Step Queries
+EDirect allows individual operations to be described separately. Combine them into a multi-step query by using the vertical bar ("|") Unix pipe symbol:
+
+  ```esearch -db pubmed -query "tn3 transposition immunity" | efetch -format medline```
+
+## Writing Commands on Multiple Lines
+A query can be continued on the next line by typing the backslash ("\") Unix escape character immediately before pressing the **Return** key, for example:
+
+  ```esearch -db pubmed -query "opsin gene conversion" | \```
+  
+These lines:
+
+  elink -related | \
+  elink -target protein | \
+  efilter -division rod | \
+  efetch -format fasta
+
+do the following in order: 
+ * **elink -related**  looks up precomputed neighbors of the original papers. 
+ * **elink -target protein**  links to all protein sequences published in the related articles.
+ * **Efilter -division rod** limits the related artcles to the rodent division of GenBank. 
+ * **efetch -format fasta** retrieves the records in FASTA format:
+
+In most modern versions of Unix, the vertical bar pipe symbol also allows the query to continue to the next line without the need for an additional backslash.
 
 
 
