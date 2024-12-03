@@ -10,14 +10,14 @@ Users can interact with the E-Utility APIs via the following options. Click a li
   * [Unix Commmand Line](./access/commandline.md)
 
 
-## API URL
+## API Query URL
 
-Entrez API queries have three parts:
+Entrez API queries URL have three parts:
  * Base URL
  * E-Utility
  * Parameters
 
-## Building a Simple Entrez Query
+## Building a Simple Entrez Query URL
 
  1. Start all Entrez queries with the following base URL:
  
