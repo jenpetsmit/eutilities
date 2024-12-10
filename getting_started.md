@@ -14,7 +14,7 @@ See [API Keys](https://github.com/jenpetsmit/eutilities/blob/main/access/api_key
 
 ## YAML
 
-See [YAML](./eutils/yml.md) for the .yml I wrote for the E-Utilties API documentation.
+See [eutils.yml](./eutils/yml.md) for the .yml I wrote for the E-Utilties API documentation.
 
 
 
