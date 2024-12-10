@@ -6,14 +6,15 @@ For complete information, see [E-utilities API](https://www.ncbi.nlm.nih.gov/boo
 
 This quick start introduces you to using the five most common E-Utilities. See [E-Utilities](https://www.ncbi.nlm.nih.gov/books/NBK25500/) for a complete list of E-utilities with advanced options:
 
-- **ESearch** for Searching
-- **ESummary** for downloading summaries of database records
+- [ESearch](#esearch) for Searching    
+- **[ESummary](#esummary)** for downloading summaries of database records
 - **Efetch** for returning full data records
 - **Elink** for returning data linked between two databases
 - **Epost** for saving your search history and using that information in another E-utility
 
 ---
 
+ 
 ## ESearch  
 
 You can do a basic search using a simple query in your internet browser.
