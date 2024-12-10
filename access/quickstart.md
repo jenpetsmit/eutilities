@@ -2,15 +2,15 @@
 
 E-Utilities Quick Start demonstrates how to use the most popular/common E-Utilities and a few of their parameters via your internet browser.
 
-For complete information, see [E-utilities API](https://www.ncbi.nlm.nih.gov/books/NBK25501/).
+ 
 
-This quick start introduces you to using the five most common E-Utilities. See [E-Utilities](https://www.ncbi.nlm.nih.gov/books/NBK25500/) for a complete list of E-utilities with advanced options:
+This quick start introduces you to using the most common E-Utilities. See [E-utilities](eutils/eutils_home.md).for a complete list of E-utilities with advanced options:
 
-- [ESearch](#esearch) for Searching    
+- **[ESearch](#esearch)** for Searching    
 - **[ESummary](#esummary)** for downloading summaries of database records
-- **Efetch** for returning full data records
-- **Elink** for returning data linked between two databases
-- **Epost** for saving your search history and using that information in another E-utility
+- **[Efetch](#efetch)** for returning full data records
+- **[Elink](#elink)** for returning data linked between two databases
+
 
 ---
 
@@ -48,26 +48,60 @@ For **Esearch**, the required parameters are:
 ### Results:
 - **ESearch** returns a list of UIDs displayed in the internet browser.  
 - By default, the maximum number of results is limited to 20.  
-- To change the number of results or add other optional parameters, see [ESearch documentation](https://www.ncbi.nlm.nih.gov/books/NBK25499/).
 
----
 
 ##  ESummary  
 
-You can create a query for a summary of each UID using the **ESummary** E-utility in your internet browser.
+You can create a query for a document summary of each UID using the **ESummary** E-utility in your internet browser.
 
----
+`esummary.fcgi?db=<database>&id=<uid_list>`
+
+**Input**: List of UIDs (&id); Entrez database (&db)
+
+**Output**: XML DocSums
+
+**Example**: Download DocSums for these protein GIs: 6678417,9507199,28558982,28558984,28558988,28558990
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=protein&id=6678417,9507199,28558982,28558984,28558988,28558990](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=protein&id=6678417,9507199,28558982,28558984,28558988,28558990)
 
 
 
-## C-3 Efetch (Include in Quick Start?)
+## Efetch  
 
----
+Returns full records in a variety of formats, not just XML. 
 
-## C-4 Elink (Quick Start Version)
+`efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrieval_mode}`
+
+For **Efetch**, the required parameters are:
+
+| **Parameter** | **Description**                     | **Example**          |
+|---------------|-------------------------------------|----------------------|
+| `db`          | Entrez database you want to search | `db=pubmed`         |
+ 
+
+**Input**: List of UIDs (&id); Entrez database (&db); Retrieval type (&rettype); Retrieval mode (&retmode)
+
+**Output**: Formatted data records as specified
+
+**Example**: Download nuccore GIs 34577062 and 24475906 in FASTA format
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=34577062,24475906&rettype=fasta&retmode=text](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=34577062,24475906&rettype=fasta&retmode=text)
+
+
+
+##  Elink 
 
 Get a list of UIDs that are in the Source Database and linked to the Destination Database (Linked UIDs).
 
-### Modes:
-- **Batch mode**: Finds only one set of linked UIDs.  
-  Example:  
+`elink.fcgi?dbfrom={source_db}&db={destination_db}&id={uid_list}`
+
+For **Elink**, the required parameters are:
+
+| **Parameter** | **Description**                     | **Example**          |
+|---------------|-------------------------------------|----------------------|
+| `db`          | Entrez database you want to search | `db=pubmed`         | 
+| `dbfrom`      | Entrez database containing the input UIDs  | `dbfrom=protien`|
+| `id`          | UID list                                    | `id=34577062,24475906 |
+
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=34577062,24475906](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&db=gene&id=34577062,24475906)
+ 
