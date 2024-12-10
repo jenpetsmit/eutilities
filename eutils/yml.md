@@ -1,5 +1,5 @@
 # eutils.yml
-## A Work in Progress
+A Work in Progress
 ```
 ---
 openapi: 3.0.0
