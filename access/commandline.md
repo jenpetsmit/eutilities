@@ -38,10 +38,14 @@ Please refer to Application 3 in Chapter 3 for an example. Many thousands of IDs
 # Using EDirect
 Search terms are entered as command-line arguments. Individual operations connect with Unix pipes to construct multi-step queries for you. Selected records are retrieved in a variety of formats.
 
- ## ESearch   
-Esearch performs a new search using terms in indexed fields. **SHOULD WE INCLUDE A LIST FIELDS HAVE BEEN INDEXED?** 
+ ## EDirect ESearch   
+Esearch performs a new search using terms in indexed fields.  
 
 To use ESearch, follow the structure of this example:
+
+`esearch -db {database} -query “{text or phrase}”`
+
+For example:
 
 `esearch -db pubmed -query "selective serotonin reuptake inhibitor"`
 
@@ -49,7 +53,7 @@ Search terms can also be qualified with a bracketed field name to match within t
 
 `esearch -db nuccore -query "insulin [PROT] AND rodents [ORGN]"`
 
-**Table: Required Fields for ESearch**    **<-- REQUIRED FIELDS ARE THE SAME FOR COMMAND LINE AND BROWSER AND PROB API -->**
+**Table: Required Fields for ESearch**    
 
 | common name | argument |  example |
 | --- | ---  | --- |
@@ -57,9 +61,6 @@ Search terms can also be qualified with a bracketed field name to match within t
 | search term | -query | -query "insulin [PROT] AND rodents [ORGN]" |
 
 
-
-( **DO WE NEED TO INCLUDE THIS:**  For PubMed, without field qualifiers, the server uses automatic term mapping to compose a search strategy by translating the supplied query?)
- 
 
 
 ## ELink 
