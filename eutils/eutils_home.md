@@ -48,11 +48,11 @@ Each E-Utility name is linked to its own page with complete information.
 | [einfo](einfo.md)   |  Retrieves information and statistics about a single database <br>  If no database is provide, einfo returns the list of current databases in the Entrez network. |
 | [esearch](esearch.md)    | Returns a list of UIDs from a single database containing the searched text    |
 | [egquery](egquery.md)     |  Searches a text query in all Entrez databases and returns the number of results [IN THE FORM OF UID PERHAPS?]   in each database   |
-|  [efetch](efetch.md) | Returns a full data record  [ DEFINE “FULL RECORD”]    |
+|  [efetch](efetch.md) | Returns a full data record   |
 | [esummary](esummary.md)  	  |  Downloads document summaries for each UID   |
-| [elink](elink.md)     |  Retrieves UIDs for related or linked records, or LinkOut URLs  [WHAT IS A LINKOUT URL?]   |
-| [espell](espell.md)     |  	Retrieves spelling suggestions for a text query […FOR WHEN YOU DON’T KNOW HOW TO SPELL SOMETHING?]   |
-| [ecitmatch](ecitmatch.md)  	  |  Searches PubMed for a series of citation strings   [DEFINE CITATION STRING]   |
+| [elink](elink.md)     |  Retrieves UIDs for related or linked records, or LinkOut URLs     |
+| [espell](espell.md)     |  	Retrieves spelling suggestions for a text query   |
+| [ecitmatch](ecitmatch.md)  	  |  Searches PubMed for a series of citation strings    |
 |	[epost](epost.md)   |  Saves a list of UIDs you can use subsequently with other E-Utilities like esummary or efetch   |
    
 
