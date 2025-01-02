@@ -45,7 +45,7 @@ Each E-Utility name is linked to its own page with complete information.
 
 | E-Utility   | Brief Description | 
 | --- | --- |
-| [einfo](./eutilities/eutils/einfo.md)   |  Retrieves information and statistics about a single database <br>  If no database is provide, einfo returns the list of current databases in the Entrez network. |
+| [einfo](einfo.md)   |  Retrieves information and statistics about a single database <br>  If no database is provide, einfo returns the list of current databases in the Entrez network. |
 | [esearch](./eutils/esearch.md)    | Returns a list of UIDs from a single database containing the searched text    |
 | [egquery](./eutils/egquery.md)     |  Searches a text query in all Entrez databases and returns the number of results [IN THE FORM OF UID PERHAPS?]   in each database   |
 |  [efetch](./eutils/efetch) | Returns a full data record  [ DEFINE “FULL RECORD”]    |
