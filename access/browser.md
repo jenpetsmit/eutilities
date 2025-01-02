@@ -1,4 +1,4 @@
-# Access E-Utilities via Internet Browser
+# E-Utilities
 
 
 ## API Query URL
