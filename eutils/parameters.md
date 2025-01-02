@@ -1,7 +1,13 @@
 # Parameters
 
+Parameters tell the query what to search for and how to return the results. There is no required order for the URL parameters in an E-utility URL. 
+See Table 2 for a complete list of available parameters. Note: Not all E-utilities accept every parameter.   
+
   * [Date Parameters](#date-parameters)
   * [Retrival Parameters](#retrival-parameters)
+  * [ecitmatch E-Utility](#ecitmatch-e-utility)
+  * [elink E-Utility](#elink-e-utility)
+
 
 ## Date Parameters
 
@@ -50,3 +56,24 @@ esearch.fcgi?db=pubmed&term=asthma[title]
 
 **idtype**
   * Specifies the type of identifier to return for sequence databases (nuccore, popset, protein). By default, ESearch returns GI numbers in its output. If idtype is set to ‘acc’, ESearch will return accession.version identifiers rather than GI numbers.
+
+## ecitmatch E-Utility
+
+**bdata**	
+
+For use with: ecitmatch
+
+Citation strings		
+  * Each input citation must be represented by a citation string in the following format:
+ ```
+journal_title|year|volume|first_page|author_name|your_key|
+```
+
+Multiple citation strings may be provided by separating the strings with a carriage return character (%0D). The **your_key** value is an arbitrary label provided by the user that may serve as a local identifier for the citation. It will be included in the output. Note that all spaces must be replaced by ‘+’ symbols and that citation strings should end with a final vertical bar ‘|’.
+```
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ecitmatch.cgi?db=pubmed&retmode=xml**&bdata=proc+natl+acad+sci+u+s+a|1991|88|3248|mann+bj|Art1|%0Dscience|1987|235|182|palmenberg+ac|Art2|**
+```
+
+## elink E-Utility
+
+See [ELink](elink.md) for details.
