@@ -49,7 +49,7 @@ Use Query Key and Web Environment parameters when including input from the **Ent
  |  Optional Parameter | Common Name | Description |
  | --- | --- | --- |
  | **query_key**  |Query Key |  This integer specifies which of the UID lists attached to the given Web Environment will be used as input to EFetch. Query keys are obtained from the output of previous ESearch, EPost or ELInk calls. The query_key parameter must be used in conjunction with WebEnv. |
-  | **WebEnv** | Web Environment | This parameter specifies the Web Environment that contains the UID list to be provided as input to EFetch. Usually this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key. |
+ | **WebEnv** | Web Environment | This parameter specifies the Web Environment that contains the UID list to be provided as input to EFetch. Usually this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key. |
 
  
 ```efetch.fcgi?db=protein&query_key={key}&WebEnv={webenv string}```
@@ -57,11 +57,11 @@ Use Query Key and Web Environment parameters when including input from the **Ent
 ##  Optional Parameters – Retrieval
 **Table 3. EFetch Optional Retrieval Parameters**
 | Optional Parameter | Common Name | Description |
- | --- | --- | --- |
-  | **rettype** | Retrieval Rype | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database. |
-   | **retstart** | Retrival Start | Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set. |
-    | **retmax** | Retrieval Max | Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax. |
-     | **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. <br> See Table 4 for a full list of allowed values for each database. |
+| --- | --- | --- |
+| **rettype** | Retrieval Rype | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database. |
+| **retstart** | Retrival Start | Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set. |
+| **retmax** | Retrieval Max | Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax. |
+| **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. <br> See Table 4 for a full list of allowed values for each database. |
 
 
  
