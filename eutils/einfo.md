@@ -6,7 +6,7 @@ the information copied below from this page:
 [https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_EInfo_](https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_EInfo_)
 
 
-# Base URL
+## Base URL
 https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi
 
 ## Functions
@@ -15,7 +15,7 @@ Provides statistics for a single database, including lists of indexing fields an
 Required Parameters
 None. If no db parameter is provided, einfo will return a list of the names of all valid Entrez databases.
 
-## Optional Parameters**
+## Optional Parameters 
 **db**
 Target database about which to gather statistics. Value must be a valid Entrez database name.
 
