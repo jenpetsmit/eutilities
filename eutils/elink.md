@@ -160,28 +160,31 @@ ELink lists the primary LinkOut provider for each input UID, or links directly t
 **Example**: Link directly to the full text for a PubMed abstract at the provider's web site.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref)
-<br>
+
+ ---
+ 
 ## Optional Parameters
 
 **Table 2. ELink Optional Parameters**
  |  Optional Parameters | Common Name | Brief Description |
  | --- | --- | --- |
- | [id](#id={UID}) | Unique Identifier/UID | Identifies a record in an Entrez Database |
- | query_key | Query Key | This integer represents a UID lists attached to a Web Environment to be used as input to ELink |
- | WebEnv | Web Environment | Represents a saved session from a previous esearch, epost, or elink call |
- | retmode | Retrieval mode | Determines the format of the returned output |
- | idtype | Id Type | The type of identifier to return for sequence databases   |
- | linkname | Name of the Entrez link  | Every link in Entrez is given a name of the form dbfrom_db_subset. |
- | term | Key word or phrase | Text query used to limit the output set of linked UIDs |
- | holding |   | Name of LinkOut provider |
+ | [id](#id) | Unique Identifier/UID | Identifies a record in an Entrez Database |
+ | [query_key](#query_key) | Query Key | This integer represents a UID lists attached to a Web Environment to be used as input to ELink |
+ | [WebEnv](#webenv) | Web Environment | Represents a saved session from a previous esearch, epost, or elink call |
+ | [retmode](#retmode) | Retrieval mode | Determines the format of the returned output |
+ | [idtype](#idtype) | Id Type | The type of identifier to return for sequence databases   |
+ | [linkname](#linkname) | Name of the Entrez link  | Every link in Entrez is given a name of the form dbfrom_db_subset. |
+ | [term](#term) | Key word or phrase | Text query used to limit the output set of linked UIDs |
+ | [holding](#holding) |   | Name of LinkOut provider |
  | [datetype](#datetype) | Type of date | One of 3 date types used to limit a link operation |
- | reldate | Relative date | Retrieves only those items that have a date specified by datetype within the last n days. |
- | mindate | Minimum date | Limits a link operation by the earliest date specified by datetype |
- | maxdate | Maximum date | Limits a link operation by the morst recent date specified by datetype |
+ | [reldate](#reldate) | Relative date | Retrieves only those items that have a date specified by datetype within the last n days. |
+ | [mindate](#mindate) | Minimum date | Limits a link operation by the earliest date specified by datetype |
+ | [maxdate](#maxdate) | Maximum date | Limits a link operation by the morst recent date specified by datetype |
 <br>
 
-### id={UID}
+### id 
 
+**id={UID}**
   * Either a single UID or a comma-delimited list of UIDs may be provided. 
   * All the UIDs must be from the database specified by dbfrom. 
   * There is no set maximum for the number of UIDs that can be passed to ELink, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.
@@ -208,11 +211,12 @@ For sequence databases (nuccore, popset, protein), the UID list may be a mixed l
 
 K-7	Required Parameters when  input is from the Entrez History server
 
-**query_key**
+### query_key 
 
-Query key. This integer specifies which of the UID lists attached to the given Web Environment will be used as input to ELink. Query keys are obtained from the output of previous ESearch, EPost or ELInk calls. The query_key parameter must be used in conjunction with WebEnv.
-<br>
-**WebEnv**
+**Query key**. This integer specifies which of the UID lists attached to the given Web Environment will be used as input to ELink. Query keys are obtained from the output of previous ESearch, EPost or ELInk calls. The query_key parameter must be used in conjunction with WebEnv.
+
+
+### WebEnv 
 
 Web Environment. This parameter specifies the Web Environment that contains the UID list to be provided as input to ELink. Usually, this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key.
 
@@ -222,13 +226,13 @@ Link from protein to gene:
 
 **Example**: Find related sequences (link from protein to protein): elink.fcgi?dbfrom=protein&db=protein&query_key={key}&WebEnv={webenv string}
 
-K-8	Optional Parameter – Retrieval
-<br>
-**retmode**
+## Optional Parameter – Retrieval
+ 
+### retmode
 
 Retrieval type. Determines the format of the returned output. The default value is ‘xml’ for ELink XML, but ‘json’ is also supported to return output in JSON format.
-<br>
-**idtype**
+ 
+### idtype 
 
 Specifies the type of identifier to return for sequence databases (nuccore, popset, protein). By default, ELink returns GI numbers in its output. If idtype is set to ‘acc’, ELink will return accession.version identifiers rather than GI numbers.
 
@@ -236,7 +240,7 @@ Specifies the type of identifier to return for sequence databases (nuccore, pops
 
 ### Optional Parameters – Limiting the Output Set of Links
 
-**linkname**
+### linkname
 
 Name of the Entrez link to retrieve. Every link in Entrez is given a name of the form dbfrom_db_subset.
 
@@ -251,8 +255,9 @@ The linkname parameter only functions when cmd is set to neighbor or neighbor_hi
 **Example**: Find snps with genotype data linked to genes.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=gene&db=snp&id=93986&linkname=gene_snp_genegenotype](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=gene&db=snp&id=93986&linkname=gene_snp_genegenotype)
-<br>
-**term**
+
+
+### term
 
 Entrez query used to limit the output set of linked UIDs. The query in the term parameter will be applied after the link operation, and only those UIDs matching the query will be returned by ELink. The term parameter only functions when db and dbfrom are set to the same database value.
 
@@ -266,7 +271,7 @@ Entrez query used to limit the output set of linked UIDs. The query in the term 
 
 ---
 
-**holding**
+### holding 
 
 Name of LinkOut provider. Only URLs for the LinkOut provider specified by holding will be returned. The value provided to holding should be the abbreviation of the LinkOut provider's name found in the {NameAbbr}tag of the ELink XML output when cmd is set to llinks or llinkslib. The holding parameter only functions when cmd is set to llinks or llinkslib.
 
