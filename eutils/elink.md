@@ -25,14 +25,14 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
  | --- | --- | --- |
  | db=<database>  | Target database  |  Database from which to retrieve UIDs |
  | dbfrom=<source database>  | Source database  | Database containing the input UIDs |
- |  cmd=neighbor_score |    Neighbor score       |   Retrieves  a set of UIDs within the same database as the input UIDs along with computed similarity scores     | 
- |  cmd=neighbor_history  | Neighbor history   |     Output UIDs are saved (posted) to the Entrez History server for use in subsequent call   | 
- |  cmd=acheck |   Checks for available links         |    Retrieves links available for a set of UIDs   | 
- |  cmd=ncheck |   Checks for links in same database         |      Retrieves links in same database   | 
- |  cmd=lcheck|   External links (LinkOuts)         | Retreives external links (PubMed)       | 
- |  cmd=llinks |    External links that are not libraries        |    For each input UID, ELink lists the URLs and attributes for the LinkOut providers that are not libraries .   | 
- |  cmd=llinkslib | External links that include libraries    |   For each input UID, ELink lists the URLs and attributes for all LinkOut providers including libraries    | 
- |  cmd=prlinks |      Primary LinkOut provider      | For each input UID retrieves the primary LinkOut provider, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.      | 
+ |  [cmd=neighbor_score](#neighbor_score) |    Neighbor score       |   Retrieves  a set of UIDs within the same database as the input UIDs along with computed similarity scores     | 
+ |  [cmd=neighbor_history](neighbor_history)  | Neighbor history   |     Output UIDs are saved (posted) to the Entrez History server for use in subsequent call   | 
+ |  [cmd=acheck](#acheck) |   Checks for available links         |    Retrieves links available for a set of UIDs   | 
+ |  [cmd=ncheck](#ncheck) |   Checks for links in same database         |      Retrieves links in same database   | 
+ |  [cmd=lcheck](#lcheck) |   External links (LinkOuts)         | Retreives external links (PubMed)       | 
+ |  [cmd=llinks](#llinks) |    External links that are not libraries        |    For each input UID, ELink lists the URLs and attributes for the LinkOut providers that are not libraries .   | 
+ |  [cmd=llinkslib](#llinkslib) | External links that include libraries    |   For each input UID, ELink lists the URLs and attributes for all LinkOut providers including libraries    | 
+ |  [cmd=prlinks](#prlinks) |      Primary LinkOut provider      | For each input UID retrieves the primary LinkOut provider, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.      | 
  
 
 
@@ -58,7 +58,7 @@ If db and dbfrom are set to the same database value, then ELink will return comp
 **Computational Neighbors**
 ELink can return a set of UIDs within the same database as the input UIDs along with computed similarity scores called _Computational Neighbors_.
 
-<br>
+#### neighbor_score
 
 |   Command parameter | Description |
 | --- | --- |
@@ -69,6 +69,7 @@ ELink can return a set of UIDs within the same database as the input UIDs along 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=20210808&cmd=neighbor_score](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=20210808&cmd=neighbor_score)
 <br>
 
+#### neighbor_history
 
 |   Command parameter | Description |
 | --- | --- |
@@ -95,7 +96,7 @@ ELink posts the output UIDs to the Entrez History server and returns a query_key
 
 
 
-<br>
+#### acheck
 
 |   Command parameter | Description |
 | --- | --- |
@@ -109,7 +110,7 @@ ELink posts the output UIDs to the Entrez History server and returns a query_key
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=pubmed&id=15718680,157427902&cmd=acheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=pubmed&id=15718680,157427902&cmd=acheck)
 
-<br>
+####ncheck
 
 |   Command parameter | Description |
 | --- | --- |
@@ -119,13 +120,17 @@ ELink posts the output UIDs to the Entrez History server and returns a query_key
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&id=21614549,219152114&cmd=ncheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=nuccore&id=21614549,219152114&cmd=ncheck)
 <br>
+
+#### lcheck
+
 **cmd=lcheck**
 Elink checks for the existence of external links (LinkOuts) for a set of UIDs.
 
 **Example**: Check whether two protein sequences have any LinkOut providers.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=lcheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=lcheck)
-<br>
+
+####llinks
 
 **cmd=llinks**
 For each input UID, ELink lists the URLs and attributes for the LinkOut providers that are not libraries.
@@ -133,7 +138,8 @@ For each input UID, ELink lists the URLs and attributes for the LinkOut provider
 **Example**: List the LinkOut URLs for non-library providers for two pubmed abstracts.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinks](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinks)
-<br>
+
+#### llinkslib
 
 **cmd=llinkslib**
 For each input UID, ELink lists the URLs and attributes for all LinkOut providers including libraries.
@@ -141,7 +147,8 @@ For each input UID, ELink lists the URLs and attributes for all LinkOut provider
 **Example**: List all LinkOut URLs for two PubMed abstracts.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinkslib](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=llinkslib)
-<br>
+
+#### prlinks
 
 **cmd=prlinks**
 ELink lists the primary LinkOut provider for each input UID, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.
