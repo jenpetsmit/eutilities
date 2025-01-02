@@ -21,10 +21,23 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
 ## Required Parameters
 
 **Table 1. ELink Required Parameters**
+ |  Required Parameters &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Common Name | Brief Description |
+ | --------------- | --- | --- |
+ | db={database}  | Target database  |  Database from which to retrieve UIDs |
+ | <span>dbfrom={source database} </span> | Source database  | Database containing the input UIDs |
+ | <span>  [cmd={command option}](#elink-command-options) </span> |    ELink Command Mode      |   Specifies which function ELink will perform. Some optional parameters only function for certain values of &cmd (see below).    | 
+
+ 
+
+
+
+### ELink Command Mode Options
+
+ELink offers the option to write commands in the API ELink query.
+
+**Table 2. ELink Command Mode Options**
  |  Required Parameters | Common Name | Brief Description |
  | --- | --- | --- |
- | db=<database>  | Target database  |  Database from which to retrieve UIDs |
- | dbfrom=<source database>  | Source database  | Database containing the input UIDs |
  |  [cmd=neighbor_score](#neighbor_score) |    Neighbor score       |   Retrieves  a set of UIDs within the same database as the input UIDs along with computed similarity scores     | 
  |  [cmd=neighbor_history](#neighbor_history)  | Neighbor history   |     Output UIDs are saved (posted) to the Entrez History server for use in subsequent call   | 
  |  [cmd=acheck](#acheck) |   Checks for available links         |    Retrieves links available for a set of UIDs   | 
@@ -32,14 +45,7 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
  |  [cmd=lcheck](#lcheck) |   External links (LinkOuts)         | Retreives external links (PubMed)       | 
  |  [cmd=llinks](#llinks) |    External links that are not libraries        |    For each input UID, ELink lists the URLs and attributes for the LinkOut providers that are not libraries .   | 
  |  [cmd=llinkslib](#llinkslib) | External links that include libraries    |   For each input UID, ELink lists the URLs and attributes for all LinkOut providers including libraries    | 
- |  [cmd=prlinks](#prlinks) |      Primary LinkOut provider      | For each input UID retrieves the primary LinkOut provider, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.      | 
- 
-
-
-
-## ELink Command Options
-
-ELink offers the option to write commands in the API ELink query.
+ |  [cmd=prlinks](#prlinks) | Primary LinkOut provider | For each input UID retrieves the primary LinkOut provider, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.      | 
 
 **Computational Neighbors**
 
