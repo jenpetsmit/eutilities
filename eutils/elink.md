@@ -110,7 +110,7 @@ ELink posts the output UIDs to the Entrez History server and returns a query_key
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=pubmed&id=15718680,157427902&cmd=acheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=pubmed&id=15718680,157427902&cmd=acheck)
 
-####ncheck
+#### ncheck
 
 |   Command parameter | Description |
 | --- | --- |
@@ -130,7 +130,7 @@ Elink checks for the existence of external links (LinkOuts) for a set of UIDs.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=lcheck](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&id=15718680,157427902&cmd=lcheck)
 
-####llinks
+#### llinks
 
 **cmd=llinks**
 For each input UID, ELink lists the URLs and attributes for the LinkOut providers that are not libraries.
@@ -166,7 +166,7 @@ ELink lists the primary LinkOut provider for each input UID, or links directly t
 **Table 2. ELink Optional Parameters**
  |  Optional Parameters | Common Name | Brief Description |
  | --- | --- | --- |
- | id | Unique Identifier/UID | Identifies a record in an Entrez Database |
+ | [id](#id={UID}) | Unique Identifier/UID | Identifies a record in an Entrez Database |
  | query_key | Query Key | This integer represents a UID lists attached to a Web Environment to be used as input to ELink |
  | WebEnv | Web Environment | Represents a saved session from a previous esearch, epost, or elink call |
  | retmode | Retrieval mode | Determines the format of the returned output |
@@ -180,7 +180,7 @@ ELink lists the primary LinkOut provider for each input UID, or links directly t
  | maxdate | Maximum date | Limits a link operation by the morst recent date specified by datetype |
 <br>
 
-**id={UID}**
+### id={UID}
 
   * Either a single UID or a comma-delimited list of UIDs may be provided. 
   * All the UIDs must be from the database specified by dbfrom. 
