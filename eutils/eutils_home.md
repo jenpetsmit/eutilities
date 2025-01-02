@@ -12,7 +12,7 @@ Entrez API queries URL have three parts:
 
 Figure 1. Parts of the Entrez API Query
 
- ![Parts of the Entrez API Query](./images/apiurlparts.png) 
+ ![Parts of the Entrez API Query](.access/images/apiurlparts.png) 
 ## Building a Simple Entrez Query URL
 You can build a simple API query URL in your internet browser: 
 
