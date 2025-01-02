@@ -24,8 +24,8 @@ The parameters usehistory, WebEnv, and query_key work together in a series of qu
  **Note**: While only one query_key parameter can be provided to ESearch, any number of query keys can be combined in **term**. If query keys are provided in **term**, they can be combined with **OR** or **NOT** in addition to **AND**.
 
 #### For all other optional parameters see the following:
-  * [Retrival Parameters](retrival_params.md)
-  * [Date Parameters](date_params.md)
+  * [Retrival Parameters](eutils/parameters.md#retrival-parameters)
+  * [Date Parameters](eutils/parameters.md#date-parameters)
  
 ## Functions
   * Provides a list of  UIDs matching a text query
