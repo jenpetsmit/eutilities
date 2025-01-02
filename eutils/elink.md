@@ -167,13 +167,13 @@ ELink lists the primary LinkOut provider for each input UID, or links directly t
  | linkname | Name of the Entrez link  | Every link in Entrez is given a name of the form dbfrom_db_subset. |
  | term | Key word or phrase | Text query used to limit the output set of linked UIDs |
  | holding |   | Name of LinkOut provider |
- | datetype | Type of date | One of 3 date types used to limit a link operation |
+ | [datetype](#datetype) | Type of date | One of 3 date types used to limit a link operation |
  | reldate | Relative date | Retrieves only those items that have a date specified by datetype within the last n days. |
  | mindate | Minimum date | Limits a link operation by the earliest date specified by datetype |
  | maxdate | Maximum date | Limits a link operation by the morst recent date specified by datetype |
 <br>
 
-**id=<UID>**
+**id={UID}**
 
   * Either a single UID or a comma-delimited list of UIDs may be provided. 
   * All the UIDs must be from the database specified by dbfrom. 
@@ -224,7 +224,9 @@ Retrieval type. Determines the format of the returned output. The default value 
 **idtype**
 
 Specifies the type of identifier to return for sequence databases (nuccore, popset, protein). By default, ELink returns GI numbers in its output. If idtype is set to ‘acc’, ELink will return accession.version identifiers rather than GI numbers.
-<br>
+
+---
+
 ### Optional Parameters – Limiting the Output Set of Links
 
 **linkname**
@@ -255,7 +257,8 @@ Entrez query used to limit the output set of linked UIDs. The query in the term 
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512&term=review%5Bfilter%5D+AND+2008%5Bpdat%5Dh](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512&term=review%5Bfilter%5D+AND+2008%5Bpdat%5Dh)
 
-<br>
+---
+
 **holding**
 
 Name of LinkOut provider. Only URLs for the LinkOut provider specified by holding will be returned. The value provided to holding should be the abbreviation of the LinkOut provider's name found in the {NameAbbr}tag of the ELink XML output when cmd is set to llinks or llinkslib. The holding parameter only functions when cmd is set to llinks or llinkslib.
@@ -267,19 +270,29 @@ Name of LinkOut provider. Only URLs for the LinkOut provider specified by holdin
 **Example**: Find information from clinicaltrials.gov for a PMID.
 
 [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&cmd=llinkslib&id=16210666&holding=CTgov](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&cmd=llinkslib&id=16210666&holding=CTgov)
-<br>
+
+---
+
  ### Optional Parameters – Dates
 
-These parameters only function when  cmd  is set to neighbor  or neighbor_history  and  dbfrom  is  pubmed.
-datetype
+These parameters only function when
+  * cmd  is set to neighbor  or neighbor_history  and
+  * dbfrom  is  pubmed
 
-Type of date used to limit a link operation. The allowed values vary between Entrez databases, but common values are 'mdat' (modification date), 'pdat' (publication date) and 'edat' (Entrez date). Generally, an Entrez database will have only two allowed values for datetype.
-<br>
+#### datetype
+
+  * Type of date used to limit a link operation. The allowed values vary between Entrez databases, but common values are:
+    *  'mdat' (modification date)
+    *  'pdat' (publication date) 
+    *  'edat' (Entrez date)
+   
+Generally, an Entrez database has only two allowed values for datetype.
+
 **reldate**
 
-When reldate is set to an integer n, ELink returns only those items that have a date specified by datetype within the last n days.
-<br>
+  * When reldate is set to an integer n, ELink returns only those items that have a date specified by datetype within the last n days.
+
 **mindate, maxdate**
 
-Date range used to limit a link operation by the date specified by datetype. These two parameters (mindate, maxdate) must be used together to specify an arbitrary date range. The general date format is YYYY/MM/DD, and these variants are also allowed: YYYY, YYYY/MM.
+  * Date range used to limit a link operation by the date specified by datetype. These two parameters (mindate, maxdate) must be used together to specify an arbitrary date range. The general date format is YYYY/MM/DD, and these variants are also allowed: YYYY, YYYY/MM.
 
