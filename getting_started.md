@@ -4,7 +4,7 @@ Entrez Utilities (E-Utilities) is an Application Program Interface (API) that he
 
 Users can interact with the E-Utility APIs via the following options:
 
-[![E-Utilities Quick Start](access/images/quickstart.png)](./access/quickstart.md) &nbsp;    [![Browser-based Entrez API Queries](./access/images/eutilities.png)](./access/browser.md) &nbsp;[![Unix Command Line](access/images/unix-command-line.png)](./access/commandline.md)
+[![E-Utilities Quick Start](access/images/quickstart.png)](./access/quickstart.md) &nbsp;    [![E-Utilities](./images/eutilities.png)](./access/browser.md) &nbsp;[![Unix Command Line](access/images/unix-command-line.png)](./access/commandline.md)
 
 
 
