@@ -61,7 +61,7 @@ Use Query Key and Web Environment parameters when including input from the **Ent
   | **rettype** | Retrieval Rype | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database. |
    | **retstart** | Retrival Start | Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set. |
     | **retmax** | Retrieval Max | Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax. |
-     | **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. See Table 4 for a full list of allowed values for each database. |
+     | **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. <br> See Table 4 for a full list of allowed values for each database. |
 
 
  
