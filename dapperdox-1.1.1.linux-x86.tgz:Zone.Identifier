@@ -1,4 +1,0 @@
-[ZoneTransfer]
-ZoneId=3
-ReferrerUrl=http://dapperdox.io/
-HostUrl=https://objects.githubusercontent.com/github-production-release-asset-2e65be/53501749/c4088f9c-1ae0-11e7-81e0-74cd3d924a90?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20241209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241209T143912Z&X-Amz-Expires=300&X-Amz-Signature=5147cad80c2a08757a66de00504b72d5399bc89e66f4a7e2b5237dbd63039415&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Ddapperdox-1.1.1.linux-x86.tgz&response-content-type=application%2Foctet-stream
