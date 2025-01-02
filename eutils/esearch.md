@@ -25,7 +25,7 @@ The parameters usehistory, WebEnv, and query_key work together in a series of qu
 
 #### For all other optional parameters see the following:
   * [Retrival Parameters](retrival_params.md)
-  * [Dates](date_params.md)
+  * [Date Parameters](date_params.md)
  
 ## Functions
   * Provides a list of  UIDs matching a text query
