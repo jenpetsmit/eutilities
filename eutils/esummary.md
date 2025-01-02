@@ -14,7 +14,7 @@
 | Goal | Argument | Browser Example | Command Line Example |
 | --- | ---  | --- | --- |
 | Which database to search | db | db=nucore  | -db nucore |
-| Which UIDs to include | id | id= |
+| Which UIDs to include | id |  id=34577062,24475906 |
 
 **Optional Fields for ESummary**  
 
