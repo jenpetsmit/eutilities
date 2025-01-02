@@ -38,7 +38,7 @@ ELink offers the option to write commands in the API ELink query.
 **Table 2. ELink Command Mode Options**
  |  Required Parameters | Common Name | Brief Description |
  | --- | --- | --- |
-  | [cmd=neighbor](#neighbor) | Neighbor | Returns a set of UIDs in db linked to the input UIDs in dbfrom (default mode) |
+  | [cmd=neighbor](#cmdneighbor) | Neighbor | Returns a set of UIDs in db linked to the input UIDs in dbfrom (default mode) |
  |  [cmd=neighbor_score](#neighbor_score) |    Neighbor score (Default)      |   Retrieves  a set of UIDs within the same database as the input UIDs along with computed similarity scores     | 
  |  [cmd=neighbor_history](#neighbor_history)  | Neighbor history   |     Output UIDs are saved (posted) to the Entrez History server for use in subsequent call   | 
  |  [cmd=acheck](#acheck) |   Checks for available links         |    Retrieves links available for a set of UIDs   | 
@@ -51,7 +51,7 @@ ELink offers the option to write commands in the API ELink query.
 
 
  
-####  neighbor
+#### cmd=neighbor
 
   * ELink can return a set of UIDs within the same database as the input UIDs along with computed similarity scores called _Computational Neighbors_. 
 
