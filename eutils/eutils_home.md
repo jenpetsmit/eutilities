@@ -1,5 +1,6 @@
-# E-utilities (Work In Progress)
+# E-utilities
 
+Note: This website is a work in progress.
 
 ## API Query URL
 
