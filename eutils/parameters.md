@@ -1,7 +1,7 @@
 # Parameters
 
-[Date Parameters](#date-parameters)
-[Retrival Parameters](#retrival-parameters)
+  * [Date Parameters](#date-parameters)
+  * [Retrival Parameters](#retrival-parameters)
 
 # Date Parameters
 
