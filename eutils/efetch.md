@@ -1,48 +1,35 @@
 # EFetch
 
+**Base URL**
 
-```efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrieval_mode}```
+```
+efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrieval_mode}
+```
+
+**Function**
+
+  * Searches a target database for a list of UIDs that have been stored on the Entrez History server and returns formatted data records
+
 
 **Input:** List of UIDs (&id); Entrez database (&db); Retrieval type (&rettype); Retrieval mode (&retmode)
-
-**Output:**  Given a list of UIDs or a set of UIDs stored on the Entrez History server, returns formatted data records
-
-**Example:** Download nuccore GIs 34577062 and 24475906 in FASTA format
-
-[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=34577062,24475906&rettype=fasta&retmode=text](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=34577062,24475906&rettype=fasta&retmode=text)
- 
-Returns full records in a variety of formats, not just XML. 
-
-Use the ```&rettype = fasta & retmode = text```    to indicate in which format you want the response. 
-
-For example:
-
-**FASTA:** 	```&rettype = fasta & retmode = text```  
-
-**PubMed abstract:** 	```&db=pubmed&rettype=abstract&retmode=text```    <- WHICH IS BETTER? NO SPACE OR WITH SPACE LIKE THE ABOVE EXAMPLE?
-
  ### Required Parameters
 
 **Table 1. EFetch Required Parameters**
  |  Required Parameters | Common Name | Description |
  | --- | --- | --- |
  | id  | UID list |  Either a single UID or a comma-delimited list of UIDs may be provided. All of the UIDs must be specified by db. There is no set maximum for the number of UIDs that can be passed to EFetch, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.  **[add link here]** |
- 
+ | db | Database | Database from which to retrieve records. The value must be a valid Entrez database name (default = pubmed). Currently EFetch does not support all Entrez databases. Please see Table 1 in Chapter 2 for a list of available databases. |
 
-For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiers.
+ Notes:
+   * For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiers.
 
-```efetch.fcgi?db=pubmed&id=19393038,30242208,29453458```
+     * ```efetch.fcgi?db=pubmed&id=19393038,30242208,29453458```
 
-```efetch.fcgi?db=protein&id=15718680,NP_001098858.1,119703751```
+     * ```efetch.fcgi?db=protein&id=15718680,NP_001098858.1,119703751```
+  * Special note for sequence databases: NCBI is no longer assigning GI numbers to a growing number of new sequence records. As such, these records are not indexed in Entrez, cannot be retrieved using ESearch or ESummary, and have no Entrez links accessible by ELink. EFetch can retrieve these records by including their **accession.version** identifier in the id parameter.
+     * **Example:** Download nuccore GIs 34577062 and 24475906 in FASTA format <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=34577062,24475906&rettype=fasta&retmode=xml](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=34577062,24475906&rettype=fasta&retmode=xml)
 
-**Special note for sequence databases**
-
-NCBI is no longer assigning GI numbers to a growing number of new sequence records. As such, these records are not indexed in Entrez, and so cannot be retrieved using ESearch or ESummary, and have no Entrez links accessible by ELink. EFetch can retrieve these records by including their accession.version identifier in the id parameter.
-
- 
-## Optional Parameters 
-
-Use Query Key and Web Environment parameters when including input from the **Entrez History server**
+## Optional Parameters when including input from the **Entrez History server**
 
 **Table 2. EFetch Optional Parameters to Use with Entrez History Server Parameter**
  |  Optional Parameter | Common Name | Description |
@@ -51,13 +38,21 @@ Use Query Key and Web Environment parameters when including input from the **Ent
  | **WebEnv** | Web Environment | This parameter specifies the Web Environment that contains the UID list to be provided as input to EFetch. Usually this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key. |
 
  
-```efetch.fcgi?db=protein&query_key={key}&WebEnv={webenv string}```
+  * **Example**: ```efetch.fcgi?db=protein&query_key={key}&WebEnv={webenv string}```
+
+
+**Table3. EFetch Optional Parameters**
+ |  OPtional Parameter | Common Name | Description | Options |
+ | --- | --- | --- | --- |
+ | rettype | Retrival Type | Indicates the format of the returned information | fasta |
+ | retmode | Retrival Mode | Indicates the format of the returned information | text, xml |
+
 
 ##  Optional Parameters – Retrieval
-**Table 3. EFetch Optional Retrieval Parameters**
+**Table 4. EFetch Optional Retrieval Parameters**
 | Optional Parameter | Common Name | Description |
 | --- | --- | --- |
-| **rettype** | Retrieval Rype | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database. |
+| **rettype** | Retrieval Type | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database. |
 | **retstart** | Retrival Start | Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set. |
 | **retmax** | Retrieval Max | Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax. |
 | **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. <br> See Table 4 for a full list of allowed values for each database. |
