@@ -1,6 +1,5 @@
 # EFetch
 
-## Basic Downloading   
 
 ```efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrieval_mode}```
 
@@ -22,7 +21,7 @@ For example:
 
 **PubMed abstract:** 	```&db=pubmed&rettype=abstract&retmode=text```    <- WHICH IS BETTER? NO SPACE OR WITH SPACE LIKE THE ABOVE EXAMPLE?
 
- ## Required Parameters
+ ### Required Parameters
 
 **Table 1. EFetch Required Parameters**
  |  Required Parameters | Common Name | Description |
