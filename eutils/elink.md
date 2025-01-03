@@ -193,8 +193,6 @@ If more than one id parameter is provided, ELink will perform a separate link op
 
   * Retrieval type. Determines the format of the returned output. The default value is ‘xml’ for ELink XML, but ‘json’ is also supported to return output in JSON format.
 
-<br>
-
  
 #### idtype 
 
@@ -247,17 +245,19 @@ These parameters only function when both of the following are true:
 #### datetype
 
   * Type of date used to limit a link operation. The allowed values vary between Entrez databases, but common values are:
-    *  'mdat' - modification date
-    *  'pdat' - publication date
-    *  'edat' - Entrez date
+    *  dateype=mdat - modification date
+    *  dateype=pdat - publication date
+    *  dateype=edat - Entrez date
    
 Generally, an Entrez database has only two allowed values for datetype.
 
 #### reldate
 
   * When reldate is set to an integer n, ELink returns only those items that have a date specified by datetype within the last n days.
+    * reldate=30
 
 #### mindate and maxdate 
 
   * Date range used to limit a link operation by the date specified by datetype. These two parameters (mindate, maxdate) must be used together to specify an arbitrary date range. The general date format is YYYY/MM/DD, and these variants are also allowed: YYYY, YYYY/MM.
+  * mindate=2000&maxdate=2001
 
