@@ -5,7 +5,7 @@
 https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ecitmatch.cgi
 ```
 **Function**
-  * Searches PubMed for citations and retrieves PubMed IDs (PMIDs) that correspond to one or more the citation strings. 
+  * Searches PubMed for citations and retrieves PubMed IDs (PMIDs) that correspond to one or more the citation strings
 
  ### Required Parameters
 
