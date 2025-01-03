@@ -33,7 +33,7 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
 
 ### ELink Command Mode Options
 
-ELink offers the option to write commands in the API ELink query. Include one of the following listed in Table 2.
+ELink offers the option to write commands in the API ELink query. Include one of the following listed in Table 2. Click the parameter name to jump to detailed information.
 
 **Table 2. ELink Command Mode Options**
  |  Required Parameter | Common Name | Brief Description |
@@ -133,6 +133,7 @@ ELink offers the option to write commands in the API ELink query. Include one of
  ---
  
 ## Optional Parameters
+Table 3 lists optional parameters commonly used with Elink. Click the parameter name to jump to detailed information.
 
 **Table 3. ELink Optional Parameters**
  |  Optional Parameters | Common Name | Brief Description |
@@ -176,7 +177,7 @@ If more than one id parameter is provided, ELink will perform a separate link op
 
 #### WebEnv 
 
-  * Web Environment. This parameter specifies the Web Environment that contains the UID list to be provided as input to ELink. Usually, this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key.
+  * **Web Environment**. This parameter specifies the Web Environment that contains the UID list to be provided as input to ELink. Usually, this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key.
 
   * Link from protein to gene:
 
@@ -191,7 +192,7 @@ If more than one id parameter is provided, ELink will perform a separate link op
  
 #### retmode
 
-  * Retrieval type. Determines the format of the returned output. The default value is ‘xml’ for ELink XML, but ‘json’ is also supported to return output in JSON format.
+  * **Retrieval type**. Determines the format of the returned output. The default value is ‘xml’ for ELink XML, but ‘json’ is also supported to return output in JSON format.
 
  
 #### idtype 
@@ -228,7 +229,7 @@ If more than one id parameter is provided, ELink will perform a separate link op
 
 ####  holding 
 
-  * Name of LinkOut provider. Only URLs for the LinkOut provider specified by holding will be returned. The value provided to holding should be the abbreviation of the LinkOut provider's name found in the {NameAbbr}tag of the ELink XML output when cmd is set to llinks or llinkslib. The holding parameter only functions when cmd is set to llinks or llinkslib.
+  * **Name of LinkOut provider**. Only URLs for the LinkOut provider specified by holding will be returned. The value provided to holding should be the abbreviation of the LinkOut provider's name found in the {NameAbbr}tag of the ELink XML output when cmd is set to llinks or llinkslib. The holding parameter only functions when cmd is set to llinks or llinkslib.
 
   * **Example**: Find information for all LinkOut providers for a PMID <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&cmd=llinkslib&id=16210666](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&cmd=llinkslib&id=16210666)
 
