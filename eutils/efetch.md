@@ -10,8 +10,6 @@ efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrie
 
   * Searches a target database for a list of UIDs that have been stored on the Entrez History server and returns formatted data records
 
-
-**Input:** List of UIDs (&id); Entrez database (&db); Retrieval type (&rettype); Retrieval mode (&retmode)
  ### Required Parameters
 
 **Table 1. EFetch Required Parameters**
@@ -41,21 +39,16 @@ efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrie
   * **Example**: ```efetch.fcgi?db=protein&query_key={key}&WebEnv={webenv string}```
 
 
-**Table3. EFetch Optional Parameters**
- |  OPtional Parameter | Common Name | Description | Options |
- | --- | --- | --- | --- |
- | rettype | Retrival Type | Indicates the format of the returned information | fasta |
- | retmode | Retrival Mode | Indicates the format of the returned information | text, xml |
 
 
 ##  Optional Parameters – Retrieval
 **Table 4. EFetch Optional Retrieval Parameters**
-| Optional Parameter | Common Name | Description |
-| --- | --- | --- |
-| **rettype** | Retrieval Type | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database. |
-| **retstart** | Retrival Start | Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set. |
-| **retmax** | Retrieval Max | Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax. |
-| **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. <br> See Table 4 for a full list of allowed values for each database. |
+| Optional Parameter | Common Name | Description | Options |
+| --- | --- | --- | --- |
+| **rettype** | Retrieval Type | This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. | Please see Table 1 for a full list of allowed values for each database. |
+| **retstart** | Retrival Start | Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set. | |
+| **retmax** | Retrieval Max | Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax. |  | 
+| **retmode** | Retrieval mode | This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. |  See Table 4 for a full list of allowed values for each database. |
 
 
  
@@ -141,7 +134,7 @@ efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrie
 | &nbsp;&nbsp;&nbsp;&nbsp;GTR Test Report                                | gtracc                | xml (default)          |
 
 ## Optional Parameters for Sequence Databases
-**Table 5. EFetch Optional Sequence Paramaters**
+**Table 5. EFetch Optional Sequence Parameters**
 
 | Optional Parameter | Common Name | Description |
  | --- | --- | --- |
@@ -171,69 +164,69 @@ Fetch PMIDs 17284678 and 9997 as text abstracts:
 
 Fetch PMIDs in XML:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=11748933,11700088&retmode=xml```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=11748933,11700088&retmode=xml](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=11748933,11700088&retmode=xml)
 
 #### PubMed Central
 Fetch XML for PubMed Central ID 212403:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=212403 ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=212403](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=212403)
 
 #### Nucleotide/Nuccore
  Fetch the first 100 bases of the plus strand of GI 21614549 in FASTA format:
  
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&strand=1&seq_start=1&seq_stop=100&rettype=fasta&retmode=text ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&strand=1&seq_start=1&seq_stop=100&rettype=fasta&retmode=text](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&strand=1&seq_start=1&seq_stop=100&rettype=fasta&retmode=text)
 
  Fetch the first 100 bases of the minus strand of GI 21614549 in FASTA format:
  
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&strand=2&seq_start=1&seq_stop=100&rettype=fasta&retmode=text ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&strand=2&seq_start=1&seq_stop=100&rettype=fasta&retmode=text](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&strand=2&seq_start=1&seq_stop=100&rettype=fasta&retmode=text)
 
 
 Fetch the nuc-prot object for GI 21614549:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&complexity=3 ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&complexity=3](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=21614549&complexity=3)
 
 
 Fetch the full ASN.1 record for GI 5:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5 ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5)
 
 
 Fetch FASTA for GI 5:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta)
 
 
 Fetch the GenBank flat file for GI 5:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=gb ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=gb](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=gb)
 
 
 Fetch GBSeqXML for GI 5:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=gb&retmode=xml ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=gb&retmode=xml](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=gb&retmode=xml)
 
 
 Fetch TinySeqXML for GI 5:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta&retmode=xml ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta&retmode=xml](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta&retmode=xml)
 
 
  
 #### Protein
 Fetch the GenPept flat file for GI 8:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=8&rettype=gp ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=8&rettype=gp](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=8&rettype=gp)
 
 
 Fetch GBSeqXML for GI 8:
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=8&rettype=gp&retmode=xml ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=8&rettype=gp&retmode=xml](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=8&rettype=gp&retmode=xml)
 
 
 ####  Sequences
 Fetch FASTA for a transcript and its protein product (GIs 312836839 and 34577063)
 
-```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sequences&id=312836839,34577063&rettype=fasta&retmode=text ```
+[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sequences&id=312836839,34577063&rettype=fasta&retmode=text](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sequences&id=312836839,34577063&rettype=fasta&retmode=text)
 
 
 #### Gene
