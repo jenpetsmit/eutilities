@@ -125,11 +125,10 @@ ELink offers the option to write commands in the API ELink query.
 
 #### cmd=prlinks
 
-  * ELink lists the primary LinkOut provider for each input UID, or links directly to the LinkOut provider's web site for a single UID if retmode is set to ref.
-
-  * **Example**: Find links to full text providers for two PubMed abstracts <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=prlinks](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=prlinks)
-
-  * **Example**: Link directly to the full text for a PubMed abstract at the provider's web site <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref)
+  * ELink lists the primary LinkOut provider for each input UID
+    *  **Example**: Find links to full text providers for two PubMed abstracts <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=prlinks](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848,19822630&cmd=prlinks)
+  * Set retmode to **ref** for a single UID to link directly to the LinkOut provider's web site for a single UID .
+    * **Example**: Link directly to the full text for a PubMed abstract at the provider's web site <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref)
 
  ---
  
@@ -248,9 +247,9 @@ These parameters only function when both of the following are true:
 #### datetype
 
   * Type of date used to limit a link operation. The allowed values vary between Entrez databases, but common values are:
-    *  'mdat' (modification date)
-    *  'pdat' (publication date) 
-    *  'edat' (Entrez date)
+    *  'mdat' - modification date
+    *  'pdat' - publication date
+    *  'edat' - Entrez date
    
 Generally, an Entrez database has only two allowed values for datetype.
 
