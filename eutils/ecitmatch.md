@@ -5,20 +5,22 @@
 https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ecitmatch.cgi
 ```
 **Function**
-  * Retrieves PubMed IDs (PMIDs) that correspond to a set of input citation strings.      
+  * Searches PubMed for citations and retrieves PubMed IDs (PMIDs) that correspond to one or more the citation strings. 
 
-**Required Parameters**
+ ### Required Parameters
 
-**db**
-  * Database to search. The only supported value is ‘pubmed’.
+**Table 1. ECitMatch Required Parameters**
+|  Required Parameters | Common Name | Description |
+| --- | --- | --- |
+| db  | Database |  The database to search. The only supported value is ‘pubmed’. |
+| rettype | Retrieval type | The format in which the returned information is presented. The only supported value is ‘xml’. |
+| bdata | Citation strings | Citation information you provide to identify which PUbMed IDs to return |
 
-**rettype**
-  * Retrieval type. The only supported value is ‘xml’.
-
-**bdata**
-  * Citation strings. Each input citation must be represented by a citation string in the following format:<br>**journal_title|year|volume|first_page|author_name|your_key|**
-  * Multiple citation strings may be provided by separating the strings with a carriage return character ‘**%0D**’.
-  * The **your_key** value is an arbitrary label you provide that may serve as a local identifier for the citation. It is included in the output.
+Note:
+  * Each citation string must be in the following format:<br>**journal_title|year|volume|first_page|author_name|your_key|**
+    * The **your_key** value in the citration string is an arbitrary label you can provide that may serve as a local identifier for the citation. It is included in the output.
+    * In the example below, the **your_key** value is _Art1_ and _Art2_
+  * Multiple citation strings may be provided by separating the strings with a carriage return character ‘**%0D**’. See this in the example below.
   * All spaces must be replaced by ‘+’ symbols 
   * Citation strings should end with a final vertical bar ‘|’.
 
