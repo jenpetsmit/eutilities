@@ -9,7 +9,7 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?
 Creates a search history by:
   * Uploading a list of UIDs to the Entrez History server
   * Appending a list of UIDs to an existing set of UID lists attached to a Web Environment
-  * **Output**: Web environment (&WebEnv) and query key (&query_key) parameters specifying the location on the Entrez history server of the list of uploaded UIDs
+  * Saving Web environment (&WebEnv) and query key (&query_key) parameters that specify the location on the Entrez history server of the list of uploaded UIDs
 
 ## Required Parameters for Epost 
 
@@ -20,27 +20,20 @@ Table 1. Required Parameters for EPost
 | id | UID | Either a single UID or a comma-delimited list of UIDs may be provided. All of the UIDs must be from the database specified by db. |
 
  
-
-
 Notes:
   * For PubMed, no more than 10,000 UIDs can be included in a single URL request.
   * For other databases there is no set maximum for the number of UIDs that can be passed to epost, but if more than about 200 UIDs are to be posted, the request should be made using the HTTP POST method.
-  * For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiers.
+  * For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiers.  **I THINK THIS IS NO LONG TRUE - GOT AN ERROR WHEN TESTED**
   * When using **accession.version** identifiers, there is a conversion step that takes place that causes large lists of identifiers to time out, even when using POST. Therefore, we recommend batching these types of requests in sizes of about 500 UIDs or less to avoid retrieving only a partial amount of records from your original POST input list.
 
-**Example**: 
-  * [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208,29453458](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208,29453458)
-  * [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751)
+**Examples**: 
+Click the links to see the output in a new tab.
+  * Upload three PubMed Ids (19393038,30242208,29453458) for later processing. <br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208,29453458](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208,29453458)
+  * Upload Protein UIDs for later processing. <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751)
 
  
   * Upload five Gene IDs (7173,22018,54314,403521,525013) for later processing.<br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=gene&id=7173,22018,54314,403521,525013](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=gene&id=7173,22018,54314,403521,525013)
-  * output<br>
-  ```
-<ePostResult>
-   <QueryKey>1</QueryKey>
-   <WebEnv>MCID_67784f8682719cea36055ecf</WebEnv>
-</ePostResult>
-```
+
 
  ## Optional Parameter
 
@@ -60,15 +53,22 @@ Table 2. Optional Parameter for EPost
 
 
 
-## Associating a Set of UIDs with Previously Posted Sets
- 
+### Associating a Set of UIDs with Previously Posted Sets
+
+The output of a previously posted set will include:
+```
+<ePostResult>
+   <QueryKey>1</QueryKey>
+   <WebEnv>MCID_67785116a7001791d107f81d</WebEnv>
+</ePostResult>
+```
 epost.fcgi?epost.fcgi?db={database1}&id={uid_list1}
  
-# epost produces WebEnv value ($web1) and QueryKey value ($key1)
+### epost produces WebEnv value ($web1) and QueryKey value ($key1)
 ```
 epost.fcgi?db={database2}&id={uid_list2}&WebEnv=$web1
 ```
-# epost produces WebEnv value ($web2) that contains the results of both 
+### epost produces WebEnv value ($web2) that contains the results of both 
 posts ($key1 and $key2)
 
   * **Input**: List of UIDs (&id); Entrez database (&db); Existing web environment (&WebEnv)
