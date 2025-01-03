@@ -10,26 +10,23 @@ the information copied below from this page:
 https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi
 
 ## Functions
-Provides a list of the names of all valid Entrez databases
-Provides statistics for a single database, including lists of indexing fields and available link names
-Required Parameters
-None. If no db parameter is provided, einfo will return a list of the names of all valid Entrez databases.
+  * Provides a list of the names of all valid Entrez databases if no database is provided
+  * Provides statistics for a single database, including lists of indexing fields and available link names when a database is provided
 
-## Optional Parameters 
-**db**
-Target database about which to gather statistics. Value must be a valid Entrez database name.
+### Required Fields for EInfo 
+There are no required fields. If no db parameter is provided, EInfo will return a list of the names of all valid Entrez databases.
 
-**version**
-Used to specify version 2.0 EInfo XML. The only supported value is ‘2.0’. When present, EInfo will return XML that includes two new fields: <IsTruncatable> and <IsRangeable>. Fields that are truncatable allow the wildcard character ‘*’ in terms. The wildcard character will expand to match any set of characters up to a limit of 600 unique expansions. Fields that are rangeable allow the range operator ‘:’ to be placed between a lower and upper limit for the desired range (e.g. 2008:2010[pdat]).
+### Optional Fields for EInfo
 
-**retmode**
-Retrieval type. Determines the format of the returned output. The default value is ‘xml’ for EInfo XML, but ‘json’ is also supported to return output in JSON format.
+|  Optional Parameters | Common Name | Description |
+| --- | --- | --- |
+| db  | Database |  The database about which to gather statistics |
+| version | version | Used to specify version 2.0 EInfo XML. The only supported value is ‘2.0’. <br>When present, EInfo will return XML that includes two new fields: {IsTruncatabl} and {<IsRangeable}. <br>  * Fields that are truncatable allow the wildcard character ‘*’ in terms. The wildcard character will expand to match any set of characters up to a limit of 600 unique expansions.  <br>  *  Fields that are rangeable allow the range operator ‘:’ to be placed between a lower and upper limit for the desired range (e.g. 2008:2010[pdat]). |
+| retmode | Retrieval type | Determines the format of the returned output. The default value is ‘xml’.Also‘json’ is supported. |
+
 
 ## Examples
-Return a list of all Entrez database names:
+  * Return a list of all Entrez database names: <br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi)
 
-[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi)
-
-Return version 2.0 statistics for Entrez Protein:
-
-[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=protein&version=2.0](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=protein&version=2.0)
+  * Return version 2.0 statistics for Entrez Protein: <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=protein&version=2.0](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=protein&version=2.0)
+  * Return version 2.0 statistics for Entrez Protein in json format: <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=protein&version=2.0&retmode=json](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=protein&version=2.0&retmode=json)
