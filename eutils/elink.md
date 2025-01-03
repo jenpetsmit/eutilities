@@ -154,6 +154,7 @@ Table 3 lists optional parameters commonly used with Elink. Click the parameter 
 
 #### id 
 
+**UID List**
   * Either a single UID or a comma-delimited list of UIDs may be provided. 
   * All the UIDs must be from the database specified by dbfrom. 
   * There is no set maximum for the number of UIDs that can be passed to ELink, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.
@@ -169,6 +170,8 @@ If more than one id parameter is provided, ELink will perform a separate link op
   * **Example**: Find one-to-one links from protein to gene <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680&id=NP_001098858.1&id=119703751](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680&id=NP_001098858.1&id=119703751)
 
 ### Required Parameters when input is from the Entrez History server
+
+When a previous query included historyserver=y, the information retrieved from that query was saved to the History Server. Use the following two parameters to write queries to automatically include the infromation on the previous search. The saved information includes the Web Environment (WebEnv) string.
 
 #### query_key 
 
@@ -192,7 +195,7 @@ If more than one id parameter is provided, ELink will perform a separate link op
  
 #### retmode
 
-  * **Retrieval type**. Determines the format of the returned output. The default value is ‘xml’ for ELink XML, but ‘json’ is also supported to return output in JSON format.
+  * **Retrieval type**. Determines the format of the returned output. The default value is ‘xml’ for ELink XML. The value ‘json’ is an option.
 
  
 #### idtype 
@@ -209,7 +212,7 @@ If more than one id parameter is provided, ELink will perform a separate link op
 
   * The values of subset vary depending on the values of dbfrom and db. Many dbfrom/db combinations have no subset values. See the list of Entrez links for a listing of all available linknames. When linkname is used, only the links with that name will be retrieved.
 
-  * The linkname parameter only functions when cmd is set to neighbor or neighbor_history.
+  * The linkname parameter only functions when cmd is set to **neighbor** or **neighbor_history**.
 
   * **Example**: Find all links from gene to snp. <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=gene&db=snp&id=93986](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=gene&db=snp&id=93986)
 
@@ -219,7 +222,8 @@ If more than one id parameter is provided, ELink will perform a separate link op
 
 ####  term
 
-  * Entrez query used to limit the output set of linked UIDs. The query in the term parameter will be applied after the link operation, and only those UIDs matching the query will be returned by ELink. The term parameter only functions when db and dbfrom are set to the same database value.
+  * Entrez query used to limit the output set of linked UIDs. The query in the term parameter will be applied after the link operation, and only those UIDs matching the query will be returned by ELink.
+  * The _term_ parameter only functions when db and dbfrom are set to the same database value.
 
   * **Example**: Find all related articles for a PMID <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512)
 
