@@ -6,9 +6,9 @@
 
 **Function**
 
-Searches a text query in all Entrez databases and returns the number of results for the query in each database.
+Searches for text you provide in all Entrez databases and returns the number of results in each database.
 
-## Required Parameter
+
  ### Required Parameters
 
 **Table 1. EGQuery Required Parameters**
