@@ -130,6 +130,8 @@ ELink offers the option to write commands in the API ELink query. Include one of
   * Set retmode to **ref** for a single UID to link directly to the LinkOut provider's web site for a single UID .
     * **Example**: Link directly to the full text for a PubMed abstract at the provider's web site <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=19880848&cmd=prlinks&retmode=ref)
 
+<br>
+
  ---
  
 ## Optional Parameters
@@ -154,8 +156,7 @@ Table 3 lists optional parameters commonly used with Elink. Click the parameter 
 
 #### id 
 
-**UID List**
-  * Either a single UID or a comma-delimited list of UIDs may be provided. 
+**UID List**. Either a single UID or a comma-delimited list of UIDs may be provided. 
   * All the UIDs must be from the database specified by dbfrom. 
   * There is no set maximum for the number of UIDs that can be passed to ELink, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.
   * **Example**: Link from protein to gene <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902,119703751](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680,157427902,119703751)
@@ -169,7 +170,9 @@ If more than one id parameter is provided, ELink will perform a separate link op
 
   * **Example**: Find one-to-one links from protein to gene <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680&id=NP_001098858.1&id=119703751](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=protein&db=gene&id=15718680&id=NP_001098858.1&id=119703751)
 
-### Required Parameters when input is from the Entrez History server
+    <br>
+
+## Required Parameters when input is from the Entrez History server
 
 When a previous query included historyserver=y, the information retrieved from that query was saved to the History Server. Use the following two parameters to write queries to automatically include the infromation on the previous search. The saved information includes the Web Environment (WebEnv) string.
 
@@ -191,20 +194,23 @@ When a previous query included historyserver=y, the information retrieved from t
 
 <br>
 
-## Optional Parameter – Retrieval
+
+## Optional Parameters – Retrieval
  
 #### retmode
 
-  * **Retrieval type**. Determines the format of the returned output. The default value is ‘xml’ for ELink XML. The value ‘json’ is an option.
+  * **Retrieval mode**. Determines the format of the returned output. The default value is ‘xml’ for ELink XML. The value ‘json’ is an option.
 
  
 #### idtype 
 
-  * Specifies the type of identifier to return for sequence databases (nuccore, popset, protein). By default, ELink returns GI numbers in its output. If idtype is set to ‘acc’, ELink will return accession.version identifiers rather than GI numbers.
+  * **Type of identifier**. Specifies the type of identifier to return for sequence databases (nuccore, popset, protein). By default, ELink returns GI numbers in its output. If idtype is set to ‘acc’, ELink will return _accession.version_ identifiers rather than GI numbers.
 
----
+<br>
 
-### Optional Parameters – Limiting the Output Set of Links
+
+
+## Optional Parameters – Limiting the Output Set of Links
 
 ####  linkname
 
@@ -222,14 +228,14 @@ When a previous query included historyserver=y, the information retrieved from t
 
 ####  term
 
-  * Entrez query used to limit the output set of linked UIDs. The query in the term parameter will be applied after the link operation, and only those UIDs matching the query will be returned by ELink.
+  * **Term**. Entrez query used to limit the output set of linked UIDs. The query in the term parameter will be applied after the link operation, and only those UIDs matching the query will be returned by ELink.
   * The _term_ parameter only functions when db and dbfrom are set to the same database value.
 
   * **Example**: Find all related articles for a PMID <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512)
 
   * **Example**: Find all related review articles published in 2008 for a PMID <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512&term=review%5Bfilter%5D+AND+2008%5Bpdat%5Dh](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&db=pubmed&id=19879512&term=review%5Bfilter%5D+AND+2008%5Bpdat%5Dh)
 
----
+<br>
 
 ####  holding 
 
@@ -239,9 +245,11 @@ When a previous query included historyserver=y, the information retrieved from t
 
   * **Example**: Find information from clinicaltrials.gov for a PMID <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&cmd=llinkslib&id=16210666&holding=CTgov](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&cmd=llinkslib&id=16210666&holding=CTgov)
 
----
+<br>
 
- ### Optional Parameters – Dates
+
+
+ ## Optional Parameters – Dates
 
 These parameters only function when both of the following are true:
   * cmd  is set to neighbor  or neighbor_history
@@ -249,7 +257,7 @@ These parameters only function when both of the following are true:
 
 #### datetype
 
-  * Type of date used to limit a link operation. The allowed values vary between Entrez databases, but common values are:
+  * **Type of date**. Used to limit a link operation. The allowed values vary between Entrez databases, but common values are:
     *  dateype=mdat - modification date
     *  dateype=pdat - publication date
     *  dateype=edat - Entrez date
@@ -258,11 +266,11 @@ Generally, an Entrez database has only two allowed values for datetype.
 
 #### reldate
 
-  * When reldate is set to an integer n, ELink returns only those items that have a date specified by datetype within the last n days.
+  * **Relative Date**. When reldate is set to an integer n, ELink returns only those items that have a date specified by datetype within the last n days.
     * reldate=30
 
 #### mindate and maxdate 
 
-  * Date range used to limit a link operation by the date specified by datetype. These two parameters (mindate, maxdate) must be used together to specify an arbitrary date range. The general date format is YYYY/MM/DD, and these variants are also allowed: YYYY, YYYY/MM.
+  * **Minimum Date** and **Maximum Date**. Date range used to limit a link operation by the date specified by datetype. These two parameters (mindate, maxdate) must be used together to specify an arbitrary date range. The general date format is YYYY/MM/DD, and these variants are also allowed: YYYY, YYYY/MM.
   * mindate=2000&maxdate=2001
 
