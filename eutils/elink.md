@@ -23,9 +23,9 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
 **Table 1. ELink Required Parameters**
  |  Required Parameters &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Common Name | Brief Description |
  | --------------- | --- | --- |
- | db={database}  | Target database  |  Database from which to retrieve UIDs |
- | dbfrom=&nbsp;{source&nbsp;database}  | Source database  | Database containing the input UIDs |
- | [cmd={command option}](#elink-command-mode-options)   |    ELink Command Mode      |   Specifies which function ELink will perform. Some optional parameters only function for certain values of &cmd (see below).    | 
+ | db  | Target database  |  Database from which to retrieve UIDs |
+ | dbfrom  | Source database  | Database containing the input UIDs |
+ | [cmd](#elink-command-mode-options)   |    ELink Command Mode      |   Specifies which command mode function as listed in Table 2 below    | 
 
  
 
@@ -33,10 +33,10 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
 
 ### ELink Command Mode Options
 
-ELink offers the option to write commands in the API ELink query.
+ELink offers the option to write commands in the API ELink query. Include one of the following listed in Table 2.
 
 **Table 2. ELink Command Mode Options**
- |  Required Parameters | Common Name | Brief Description |
+ |  Required Parameter | Common Name | Brief Description |
  | --- | --- | --- |
   | [cmd=neighbor](#cmdneighbor) | Neighbor | Returns a set of UIDs in db linked to the input UIDs in dbfrom (default mode) |
  |  [cmd=neighbor_score](#cmdneighbor_score) |    Neighbor score (Default)      |   Retrieves  a set of UIDs within the same database as the input UIDs along with computed similarity scores     | 
