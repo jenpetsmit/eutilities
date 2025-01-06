@@ -26,43 +26,57 @@ Notes:
   * For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiers.  **I THINK THIS IS NO LONG TRUE - GOT AN ERROR WHEN TESTED**
   * When using **accession.version** identifiers, there is a conversion step that takes place that causes large lists of identifiers to time out, even when using POST. Therefore, we recommend batching these types of requests in sizes of about 500 UIDs or less to avoid retrieving only a partial amount of records from your original POST input list. <br> **NEED TO LINK TO HOW TO DO THIS**.
 
-**Examples**: 
-Click the links to see the output in a new tab.
-  * Upload two PubMed Ids (19393038,30242208) for later processing. <br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208)
-    * result includes:
-      * \<QueryKey\>1\</QueryKey\>
-      * \<WebEnv\>MCID_677be8a601b2cfcaf80d30ef\</WebEnv\> 
-  * Upload Protein UIDs for later processing. <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751)
-  * Upload five Gene IDs (7173,22018,54314,403521,525013) for later processing.<br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=gene&id=7173,22018,54314,403521,525013](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=gene&id=7173,22018,54314,403521,525013)
-
-
- ## Optional Parameter
+## Optional Parameter
 
 Table 2. Optional Parameter for EPost
 |  Optional Parameter | Common Name | Description |
 | --- | --- | --- |
 | WebEnv | Web Environment | This parameter specifies the Web Environment that will receive the UID list sent by post. EPost will create a new **query key** associated with that Web Environment. Usually, this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. If no WebEnv parameter is provided, EPost will create a new Web Environment and post the UID list to query_key 1.
 
-**Add an additional PubMed Id**
 
-**Example 1**
+## Examples 
+Click the links to see the output in a new tab. <br> Note that when you try these links, your WebEnv code will be different from the one in this example.
 
-Add an additional PubMed Id (29453458). <br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=29453458](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=29453458)
+  * **Example 1**: Upload two PubMed Ids (19393038,30242208) for later processing. <br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=19393038,30242208)
+    * result includes:
+      * \<QueryKey\>1\</QueryKey\>
+      * \<WebEnv\>MCID_677befaa229c857fb4052780\</WebEnv\> 
+ 
+  **Add an additional Id to the WebEnv location**
 
-For the three PUbMed Ids, the output included:
-  * <QueryKey>1</QueryKey>
-  * <WebEnv>MCID_677be7958c9e3d43d60fc253</WebEnv>
-
+Using the following format, add one or more PubMed UIDs and the WebEnv value from the previous search:
+```
   epost.fcgi?db=pubmed&id={uid_list2}&WebEnv=$web1
+```
+
+Add an additional PubMed Id (29453458) to web environment WebEnv=MCID_677befaa229c857fb4052780. <br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=29453458&WebEnv=MCID_677befaa229c857fb4052780](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=pubmed&id=29453458&WebEnv=MCID_677befaa229c857fb4052780)
+
+The WebEnv now contains the results of both posts ($key1 and $key2)
+
+**Output:**
+  * \<QueryKey\>2\</QueryKey\>
+  * \<WebEnv\>MCID_677befaa229c857fb4052780\</WebEnv\>
+ 
+
+ 
+  
+  
+  * **Example 2**: Upload Protein UIDs for later processing. <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?epost.fcgi?db=protein&id=15718680,NP_001098858.1,119703751)
+  * **Example **3: Upload five Gene IDs (7173,22018,54314,403521,525013) for later processing.<br>[https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=gene&id=7173,22018,54314,403521,525013](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=gene&id=7173,22018,54314,403521,525013)
+
+
+ 
+
+
   epost.fcgi?db={database2}&id={uid_list2}&WebEnv=$web1
 
-The output of a previously posted set will include:
-MCID_677be7958c9e3d43d60fc253
+The new webenv includes all three pubmedIds
+  
 
 ```
 <ePostResult>
-   <QueryKey>1</QueryKey>
-   <WebEnv>MCID_67785116a7001791d107f81d</WebEnv>
+     <QueryKey>1</QueryKey>
+     <WebEnv>MCID_677bec6501b2cfcaf80d3523</WebEnv>
 </ePostResult>
 ```
   * **Example**: Uploads a list of UIDs to the Entrez History server <br> [https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=protein&id=15718680,157427902,119703751&WebEnv={webenv string}](https://eutils.ncbi.nlm.nih.gov/entrez/eutils/epost.fcgi?db=protein&id=15718680,157427902,119703751) 
