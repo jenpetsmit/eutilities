@@ -11,7 +11,7 @@ Creates a search history by:
   * Appending a list of UIDs to an existing set of UID lists attached to a Web Environment
   * Creating Web environment (&WebEnv) and query key (&query_key) parameters that specify the location of the list of uploaded UIDs on the Entrez history server to use on subsequent queries
 
-## Required Parameters for Epost 
+## Required Parameters for EPost 
 
 Table 1. Required Parameters for EPost
 |  Required Parameter | Common Name | Description |
