@@ -3,7 +3,7 @@
 Finds text in a single NCBI database
 
 
-**esearch.fcgi?db=<database>&term=<query>**
+**esearch.fcgi?db=\<database\>&term=\<term\>**
 
  ### Required Fields for ESearch 
 
