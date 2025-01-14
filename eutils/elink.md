@@ -25,7 +25,7 @@ ELink retrieves UIDs for records linked to your list of UIDs. ELink also  retrie
  | --------------- | --- | --- |
  | db  | Target database  |  Database from which to retrieve UIDs |
  | dbfrom  | Source database  | Database containing the input UIDs |
- | [cmd](#elink-command-mode-options)   |    ELink Command Mode      |   Specifies which command mode function as listed in Table 2 below    | 
+ | [cmd](#elink-command-mode-options)   |    ELink command mode      |   Specifies which command mode function as listed in Table 2 below    | 
 
  
 
