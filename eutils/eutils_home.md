@@ -2,6 +2,19 @@
 
 Note: This website is a work in progress.
 
+Entrez Utilities (E-Utilities) is an Application Program Interface (API) that helps you gather data from most of the 40 NCBI Entrez databases (with greater than 1 billion records) residing at the NCBI using queries. The databases include a variety of biomedical data, including biomedical literature nucleotide and protein sequences, gene records, gene expression, genotype and biological assay studies with data, chemical information, and three-dimensional molecular structures. There are about 25 million EUtilities calls sent to our servers daily from about 100,000 different IP addresses.
+
+
+
+Here are a few examples of what E-Utilites can do for you:
+   * Search PubMed with a term and retrive PMIDs **(Add link here to ID)**
+   * Search MedGen with a SnoMedCI ID, then link over to GTR, and retrieve their Summary info
+   * Save a list of Gene IDs and fetch their full records
+   * Save a PubChem Compound CID and retrieve the SDF-formatted record to showthe 3D coordinates in the Molecules App **(ADD LINK HERE)**
+
+You can access E-utilities by writing URLs and pasting them into any internet browser. To see what information is available, review the [available databases and the data](https://www.ncbi.nlm.nih.gov/search/) they each offer. 
+
+
 ## API Query URL
 
 Entrez API queries URL have three parts:
@@ -25,7 +38,7 @@ You can build a simple API query URL in your internet browser:
     
 ```https://eutils.ncbi.nlm.nih.gov/entrez/eutils/E-Utility.fcgi?```
 
-   *	See Table 1 for a list of E-Utilities with descriptions.
+   *	See [Table 1](#table1) below for a list of E-Utilities with descriptions.
 
  3.	Add required and optional parameters
 
@@ -42,15 +55,15 @@ Here is an example of a simple API Entrez query. You can click the link or copy 
 The Entrez API includes nine E-Utilities. In Table 1, see the list of E-Utilities with a short description.  
 Each E-Utility name is linked to its own page with complete information.  
 
-**Table 1.  List of Entrez API E-Utilities**
+**<a id="table1"></a>Table 1.  List of Entrez API E-Utilities**
 
 | E-Utility   | Brief Description | 
 | --- | --- |
 | [einfo](einfo.md)   |  Retrieves information and statistics about a single database <br>  If no database is provide, einfo returns the list of current databases in the Entrez network. |
 | [esearch](esearch.md)    | Returns a list of UIDs from a single database containing the searched text    |
 | [egquery](egquery.md)     |  Searches a text query in all Entrez databases and returns the number of results [IN THE FORM OF UID PERHAPS?]   in each database   |
-|  [efetch](efetch.md) | Returns a full data record   |
 | [esummary](esummary.md)  	  |  Downloads document summaries for each UID   |
+| [efetch](efetch.md) | Returns a full data record   |
 | [elink](elink.md)     |  Retrieves UIDs for related or linked records, or LinkOut URLs     |
 | [espell](espell.md)     |  	Retrieves spelling suggestions for a text query   |
 | [ecitmatch](ecitmatch.md)  	  |  Searches PubMed for a series of citation strings    |
