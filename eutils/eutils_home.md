@@ -8,7 +8,7 @@ Entrez Utilities (E-Utilities) is an Application Program Interface (API) that he
 
 Here are a few examples of what E-Utilites can do for you:
    * Search PubMed with a term and retrive PMIDs **(Add link here to ID)**
-   * Search MedGen with a SnoMedCI ID, then link over to GTR, and retrieve their Summary info
+   * Search MedGen with a SnoMedCI ID, then link over to GTR and retrieve their Summary info
    * Save a list of Gene IDs and fetch their full records
    * Save a PubChem Compound CID and retrieve the SDF-formatted record to showthe 3D coordinates in the Molecules App **(ADD LINK HERE)**
 
