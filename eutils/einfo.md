@@ -21,7 +21,7 @@ There are no required parameters. If no db parameter is provided, EInfo will ret
 |  Optional Parameters | Common Name | Description |
 | --- | --- | --- |
 | db  | Database |  The database about which to gather statistics |
-| version | version | Used to specify version 2.0 EInfo XML. The only supported value is ‘2.0’. <br>When present, EInfo will return XML that includes two new fields: {IsTruncatabl} and {<IsRangeable}. <br>  * Fields that are truncatable allow the wildcard character ‘*’ in terms. The wildcard character will expand to match any set of characters up to a limit of 600 unique expansions.  <br>  *  Fields that are rangeable allow the range operator ‘:’ to be placed between a lower and upper limit for the desired range (e.g. 2008:2010[pdat]). |
+| version | version | Used to specify version 2.0 EInfo XML. The only supported value is ‘2.0’. <br>When present, EInfo will return XML that includes two new fields: {IsTruncatabl} and {<IsRangeable}. <br>  * Fields that are able to be truncated allow the wildcard character ‘*’ in terms. The wildcard character will expand to match any set of characters up to a limit of 600 unique expansions.  <br>  *  Fields that are able to use a range allow the range operator ‘:’ to be placed between a lower and upper limit for the desired range (e.g. 2008:2010[pdat]). |
 | retmode | Retrieval type | Determines the format of the returned output. The default value is ‘xml’.Also‘json’ is supported. |
 
 
