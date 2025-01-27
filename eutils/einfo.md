@@ -13,10 +13,10 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi
   * Provides a list of the names of all valid Entrez databases if no database is provided
   * Provides statistics for a single database, including lists of indexing fields and available link names when a database is provided
 
-### Required Fields for EInfo 
-There are no required fields. If no db parameter is provided, EInfo will return a list of the names of all valid Entrez databases.
+### Required Parameters for EInfo 
+There are no required parameters. If no db parameter is provided, EInfo will return a list of the names of all valid Entrez databases.
 
-### Optional Fields for EInfo
+### Optional Parameters for EInfo
 
 |  Optional Parameters | Common Name | Description |
 | --- | --- | --- |
