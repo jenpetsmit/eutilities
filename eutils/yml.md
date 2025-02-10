@@ -94,8 +94,16 @@ paths:
           explode: true
           schema:
            type: string
+        - $ref: '#/components/parameters/WebEnv'
         - $ref: '#/components/parameters/usehistory'
         - $ref: '#/components/parameters/retmax'
+        - $ref: '#/components/parameters/datetype'
+        - $ref: '#/components/parameters/strand'
+        - $ref: '#/components/parameters/seq_start'
+        - $ref: '#/components/parameters/seq_stop'
+        - $ref: '#/components/parameters/complexity'
+        - $ref: '#/components/parameters/retmode'
+        - $ref: '#/components/parameters/rettype'  
       responses:
         "200":
           description: ESummary downloaded
@@ -195,30 +203,16 @@ paths:
           explode: true
           schema:
             type: string
-        - name: retmode
-          in: query
-          description: Specifies the format to return #  needs improvement
-          explode: false
-          schema:  
-           type: string
-        - name: rettype
-          in: query
-          description: Specifies the type of retrival #  needs improvement
-          explode: false
-          schema:  
-           type: string  
-        - name: query_key
-          in: query
-          description: Specifies the format to return #  needs improvement  Works with WebEnv
-          explode: false
-          schema:  
-           type: string
-        - name:  webEnv
-          in: query
-          description: Specifies the type of retrival #  needs improvement  Works with query_key
-          explode: false
-          schema:  
-           type: string
+        - $ref: '#/components/parameters/WebEnv'
+        - $ref: '#/components/parameters/usehistory'
+        - $ref: '#/components/parameters/retmax'
+        - $ref: '#/components/parameters/datetype'
+        - $ref: '#/components/parameters/strand'
+        - $ref: '#/components/parameters/seq_start'
+        - $ref: '#/components/parameters/seq_stop'
+        - $ref: '#/components/parameters/complexity'
+        - $ref: '#/components/parameters/retmode'
+        - $ref: '#/components/parameters/rettype'  
       responses:
         '400':
           description: limitations vary with database. See [Documentation](https://github.com/jenpetsmit/eutilities/blob/main/eutils/efetch.md) for details
@@ -399,7 +393,7 @@ components:
     db:
       name: database
       in: query
-      description: Status values that need to be considered for filter
+      description: the abbreviated name of the NCBI database to be queried.
       required: false
       explode: true
       schema:
@@ -407,7 +401,7 @@ components:
     term:
       name: term
       in: query
-      description: the term or phrase to search for
+      description: the term or phrase for which to search
       required: true
       explode: true
       schema:
@@ -415,7 +409,7 @@ components:
     usehistory:
       name: Use history
       in: query
-      description: save results to history server
+      description: saves results to history server
       required: false
       explode: true
       schema: 
@@ -455,14 +449,14 @@ components:
     rettype:
       name: Retrival Type  
       in: query
-      description: There are two allowed values for ESearch 'uilist' (default), which displays the standard XML output, and 'count', which displays only the {Count} tag.
+      description: Specifies the type of return but options vary by database, for example flat file, FASTA, EST, or accession, abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. See the Parameters web page for a comlete list.
       explode: false
       schema:  
-        type: integer
+        type: string
     retmode:
       name: Retrival mode  
       in: query
-      description: Determines the format of the returned output. The default value is xml for ESearch XML, but json is also supported to return output in JSON format.
+      description: Determines the format of the returned output. The default value is xml for ESearch XML; json is also supported to return output in JSON format; efetch supports remode-text.
       explode: false
       schema:  
         type: string
@@ -568,6 +562,12 @@ components:
       description: End of date range  used to limit a link operation by the date specified by datetype. Mindate and maxdate must be used together to specify an arbitrary date range. The general date format is YYYY/MM/DD, and these variants are also allowed- YYYY, YYYY/MM.
       schema: 
         type: string
+    query_key:
+      name: Query Key
+      in: query
+      required: false
+      explode: false
+      type: string
   responses:
     205:
       description: all good
