@@ -1,5 +1,5 @@
 # eutils.yml
-A Work in Progress
+**A Work in Progress**
 ```
 ---
 openapi: 3.0.0
@@ -29,26 +29,47 @@ tags:
     description: Finds text in one NCBI databases
     externalDocs:
       description: Find out more
-      url: http://swagger.io
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/esearch.md
   - name: esummary
     description: Returns document summaries for each UID
     externalDocs:
       description: Description of ESummary
-      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/esearch.md
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/esummary.md
   - name: einfo
-    description: Retrieves information and statistics about a single database 
+    description: Retrieves information and statistics about a single database
+    externalDocs:
+      description: Find out more
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/einfo.md
   - name: egquery
-    description: Searches a text query in all NCBI databases and returns the number of results [IN THE FORM OF UID PERHAPS?] in each database 
+    description: Searches a text query in all NCBI databases and returns the number of results [IN THE FORM OF UID PERHAPS?] in each database
+    externalDocs:
+      description: Find out more
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/egquery.md
   - name: efetch
-    description: Retrieves full records for each UID   [ DEFINE “FULL RECORD”]
+    description: Retrieves on screen or downloads full records for each UID
+    externalDocs:
+      description: Find out more
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/efetch.md    
   - name: elink
-    description: Retrieves UIDs for related or linked records, or LinkOut URLs  [WHAT IS A LINKOUT URL?]
+    description: Retrieves UIDs for related or linked records, or LinkOut URLs (URLs that link outside NCBI databases) 
+    externalDocs:
+      description: Find out more
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/elink.md
   - name: espell
-    description: Retrieves spelling suggestions for a text query 
+    description: Retrieves spelling suggestions for a text query
+    externalDocs:
+      description: Find out more
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/espell.md 
   - name: ecitmatch
-    description: Searches PubMed for a series of citation strings  [DEFINE CITATION STRING] 
+    description: Searches PubMed for a series of citation strings  
+    externalDocs:
+      description: Find out more
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/ecitmatch.md
   - name: epost
     description: Stores a list of UIDs to use with other operations (get, post, etc)
+    externalDocs:
+      description: Find out more
+      url: https://github.com/jenpetsmit/eutilities/blob/main/eutils/epost.md
 paths:
 
  /esearch.fcgi?: 
@@ -89,8 +110,8 @@ paths:
     get:
       tags: 
         - esummary
-      summary: downloads document summarys of one ore more (comma separated) UID for a single database (db) o for a set or UIDs stored on History Server
-      description: downloads document summarys of one ore more (comma separated) UID for a single database (db) o for a set or UIDs stored on History Server
+      summary: downloads document summaries of one ore more (comma separated) UID for a single database (db) o for a set or UIDs stored on History Server
+      description: downloads document summaries of one ore more (comma separated) UID for a single database (db) o for a set or UIDs stored on History Server
       operationId: docsumByUID
       parameters:
         - name: db
@@ -156,7 +177,7 @@ paths:
     get:
       tags: 
         - efetch
-      summary: Returns / downloads? full records in a variety of formats, not just XML from an UID or list of comma-separate UIDs or set of UIDs from history server. EFetch can retrieve GI numbers  records by including their accession.version identifier in the id parameter.
+      summary: Returns on screen or downloads full records in a variety of formats from an UID or list of comma-separate UIDs or set of UIDs from history server. EFetch can retrieve GI numbers  records by including their accession.version identifier in the id parameter.
       description: example  - efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrieval_mode}
       operationId: efetchdwnload
       parameters:
