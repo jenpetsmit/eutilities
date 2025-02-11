@@ -4,16 +4,15 @@
 ---
 openapi: 3.0.0
 info:
-  title: Swagger E-Utilities - OpenAPI 3.0
+  title: E-Utilities - OpenAPI 3.0
   description: |-
-    This is a sample E-Utilities Server based on the OpenAPI 3.0 specification.  You can find out more about
-    Swagger at [https://swagger.io](https://swagger.io). 
+    This is a sample E-Utilities Server based on the OpenAPI 3.0 specification.  I copied a template from Swagger at [https://swagger.io](https://swagger.io) to get started.
     Some useful links:
-    - [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
-    - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
-  termsOfService: http://swagger.io/terms/
+    - [save for later](http address here)
+    - [save for later](http address here)
+  termsOfService: [link to terms of service here](http address)
   contact:
-    email: apiteam@swagger.io
+    email: jenniferpetroffsmith@gmail.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -76,7 +75,7 @@ paths:
     get:
       tags: 
         - esearch
-      summary: Finds text in a single database
+      summary: queries for text in a single database
       description: Multiple texts can be provided with comma separated strings
       operationId: findtextByDatabase
       parameters:
@@ -110,7 +109,7 @@ paths:
           content: 
             application/xml:
               schema:
-                type: string 
+                type: integer 
         "401":
           description: uh oh
 
@@ -118,8 +117,8 @@ paths:
     get:
       tags: 
         - esummary
-      summary: downloads document summaries of one ore more (comma separated) UID for a single database (db) o for a set or UIDs stored on History Server
-      description: downloads document summaries of one ore more (comma separated) UID for a single database (db) o for a set or UIDs stored on History Server
+      summary: Downloads document summaries of one ore more (comma separated) UIDs for a single database (db)  
+      description: Downloads document summaries of one ore more (comma separated) UIDs for a single database (db) or if information was saved to the History server in a previous query,  for that set or UIDs stored on History Server
       operationId: docsumByUID
       parameters:
         - name: db
@@ -167,7 +166,7 @@ paths:
           schema:  
            type: array
            items:
-            enum:  # enum restricts to specific values  BUT THIS IS FOR PUB MED ONLY
+            enum:  # enum restricts to specific values  BUT THIS IS FOR db=pubmed MED ONLY
               - pub_date
               - Author
               - JournalName
@@ -178,7 +177,61 @@ paths:
           content: 
             application/xml:
               schema:
-                type: string 
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type:string
+            text/*
+              schema:
+                type: string
+        "201":                   # guessing on repsonses
+          description: ESummary downloaded
+          content:
+            type: object
+            properties
+              id:
+                type: Integer
+              item name: Caption
+                type: String
+              item name: Title
+                type: String
+              item name: Extra
+                type: String
+              item name: Gi
+                type: Integer
+              item name: CreateDate
+                type: String
+              item name: UpdateDate
+                type: String
+              item name: Flags
+                type: Integer
+              item name: TaxId
+                type: Integer
+              item name: Length
+                type: Integer
+              item name: Status
+                type: String
+              item name: ReplacedBy
+                type: String
+              item name: Comment
+                type: String
+              item name: AccessionVersion
+                type: String
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type:string
+            text/*
+              schema:
+                type: string
         "401":
           description: uh oh
  /efetch.fcgi:
