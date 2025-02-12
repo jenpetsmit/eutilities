@@ -134,7 +134,7 @@ paths:
           required: true
           explode: true
           schema:
-            type: string
+            type: integer
         - name: usehistory
           in: query
           description: save results to history server | use with WebEnv
@@ -173,53 +173,8 @@ paths:
               - relevance
       responses:
         "200":
-          description: ESummary downloaded
+          description: ESummary downloaded, originally designed for PubMed articles, but has been expanded to to other databases where the fields of the document summary vary by database
           content: 
-            application/xml:
-              schema:
-                type: string
-            application/json:
-              schema:
-                type: string
-            text/html:
-              schema:
-                type:string
-            text/*
-              schema:
-                type: string
-        "201":                   # guessing on repsonses
-          description: ESummary downloaded
-          content:
-            type: object
-            properties
-              id:
-                type: Integer
-              item name: Caption
-                type: String
-              item name: Title
-                type: String
-              item name: Extra
-                type: String
-              item name: Gi
-                type: Integer
-              item name: CreateDate
-                type: String
-              item name: UpdateDate
-                type: String
-              item name: Flags
-                type: Integer
-              item name: TaxId
-                type: Integer
-              item name: Length
-                type: Integer
-              item name: Status
-                type: String
-              item name: ReplacedBy
-                type: String
-              item name: Comment
-                type: String
-              item name: AccessionVersion
-                type: String
             application/xml:
               schema:
                 type: string
@@ -238,8 +193,8 @@ paths:
     get:
       tags: 
         - efetch
-      summary: Returns on screen or downloads full records in a variety of formats from an UID or list of comma-separate UIDs or set of UIDs from history server. EFetch can retrieve GI numbers  records by including their accession.version identifier in the id parameter.
-      description: example  - efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrieval_mode}
+      summary: Returns on screen or downloads full records in a variety of formats from an UID or list of comma-separate UIDs.
+      description: Returns on screen or downloads full records in a variety of formats from an UID or list of comma-separate UIDs or set of UIDs from history server. Not all databases are supported. EFetch can retrieve GI numbers records by including their accession.version identifier in the id parameter. For example  - efetch.fcgi?db={database}&id={uid_list}&rettype={retrieval_type}&retmode={retrieval_mode}. For sequence databases (nuccore, popset, protein), the UID list may be a mixed list of GI numbers and accession.version identifiersThere is no set maximum for the number of UIDs that can be passed to EFetch, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method
       operationId: efetchdwnload
       parameters:
         - name: db
@@ -267,6 +222,21 @@ paths:
         - $ref: '#/components/parameters/retmode'
         - $ref: '#/components/parameters/rettype'  
       responses:
+        "200":
+          description: EFetch records, results vary by databases's fields. 
+          content: 
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type:string
+            text/*
+              schema:
+                type: string
         '400':
           description: limitations vary with database. See [Documentation](https://github.com/jenpetsmit/eutilities/blob/main/eutils/efetch.md) for details
         '404':
@@ -556,9 +526,20 @@ components:
     complexity:
       name: strand   # 
       in: query
-      description: Last sequence base to retrieve. The value should be the integer coordinate of the last desired base, with "1" representing the first base of the sequence.
+      description: 
       schema:
         type: string
+        enum:
+          - 0
+            - description: entire blob
+          - 1
+            - description: bioseq
+          - 2
+            - description: minimal bioseq-set
+          - 3
+            - description: minimal nuc-prot
+          -4
+            - description: minimal pub-set
     version:  # 
       name: version
       in: query
