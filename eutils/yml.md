@@ -17,9 +17,11 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.11
+security:
+  - api_key: []
 externalDocs:
-  description: Find out more about Swagger
-  url: http://swagger.io
+  description:  A General Introduction to the E-utilities  
+  url: [A General Introduction to the E-utilities]([https://www.ncbi.nlm.nih.gov/books/NBK25500/](https://www.ncbi.nlm.nih.gov/books/NBK25497/) )
 servers:
   - url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils
     description: base URL
@@ -103,7 +105,9 @@ paths:
         - $ref: '#/components/parameters/complexity'
         - $ref: '#/components/parameters/retmode'
         - $ref: '#/components/parameters/rettype'  
-      responses:
+    security:
+      -api_key: []
+ responses:
         "200":
           description: ESummary downloaded
           content: 
@@ -171,6 +175,8 @@ paths:
               - Author
               - JournalName
               - relevance
+      security:
+        -api_key: []
       responses:
         "200":
           description: ESummary downloaded, originally designed for PubMed articles, but has been expanded to to other databases where the fields of the document summary vary by database
@@ -221,6 +227,8 @@ paths:
         - $ref: '#/components/parameters/complexity'
         - $ref: '#/components/parameters/retmode'
         - $ref: '#/components/parameters/rettype'  
+      security:
+        -api_key: []
       responses:
         "200":
           description: EFetch records, results vary by databases's fields. 
@@ -279,6 +287,8 @@ paths:
             link:
               summary: "See detailed information about version parametmer with respect to EInfo"
               externalValue: https://github.com/jenpetsmit/eutilities/blob/main/eutils/einfo.md
+      security:
+        -api_key: []
       responses:
         '200':
           description: Ok
@@ -345,6 +355,8 @@ paths:
         - $ref: '#/components/parameters/reldate'
         - $ref: '#/components/parameters/mindate'
         - $ref: '#/components/parameters/maxdate'
+      security:
+        -api_key: []
       responses:
           '200':
             description:  200 response It works
@@ -374,6 +386,8 @@ paths:
           required: true
           schema:
            type: string
+      security:
+        -api_key: []
       responses:
           '200':
             description:  200 response It works
@@ -405,6 +419,8 @@ paths:
           required: true
           schema:
            type: string
+      security:
+        -api_key: []
       responses:
           '200':
             description:  200 response It works
@@ -602,7 +618,14 @@ components:
       required: false
       explode: false
       type: string
-  responses:
+    api_key:
+      name API key  
+      in: query
+      reaquired: false
+      explose: false
+      type: sting
+      description: Only needed if access to E-Utilities is more than three requests per second. Users can get an API key from their NCBI account, from the Settings page.
+ responses:
     205:
       description: all good
     IllegalInput:
@@ -624,15 +647,8 @@ components:
                  - delivered
     
   securitySchemes:
-    petstore_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
-          scopes:
-            write:pets: modify pets in your account
-            read:pets: read your pets
     api_key:
+      description: Only needed if access to E-Utilities is more than three requests per second. Users can get an API key from their NCBI account, from the  Settings page.
       type: apiKey
       name: api_key
       in: header
