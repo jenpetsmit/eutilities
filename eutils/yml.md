@@ -95,14 +95,6 @@ paths:
           explode: true
           schema:
            type: string
-        - $ref: '#/components/parameters/WebEnv'
-        - $ref: '#/components/parameters/usehistory'
-        - $ref: '#/components/parameters/retmax'
-        - $ref: '#/components/parameters/datetype'
-        - $ref: '#/components/parameters/strand'
-        - $ref: '#/components/parameters/seq_start'
-        - $ref: '#/components/parameters/seq_stop'
-        - $ref: '#/components/parameters/complexity'
         - $ref: '#/components/parameters/retmode'
         - $ref: '#/components/parameters/rettype'  
     security:
@@ -159,6 +151,14 @@ paths:
           required: false
           schema:  
            type: integer
+        - $ref: '#/components/parameters/WebEnv'
+        - $ref: '#/components/parameters/usehistory'
+        - $ref: '#/components/parameters/retmax'
+        - $ref: '#/components/parameters/datetype'
+        - $ref: '#/components/parameters/strand'
+        - $ref: '#/components/parameters/seq_start'
+        - $ref: '#/components/parameters/seq_stop'
+        - $ref: '#/components/parameters/complexity'
         - $ref: '#/components/parameters/retstart'  
         - $ref: '#/components/parameters/retmax'
         - $ref: '#/components/parameters/version'
