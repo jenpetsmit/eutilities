@@ -653,3 +653,5 @@ components:
       name: api_key
       in: header
 ```
+
+[Return to Portfolio Home Page](https://jenpetsmit.github.io/)
